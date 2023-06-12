@@ -7,7 +7,12 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = int(os.environ.get("DEBUG", 1))
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "snowball-website-development.up.railway.app",
+    "0.0.0.0",
+    "www.snowballtools.xyz",
+    "www.snowballtools.com",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -105,3 +110,11 @@ STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://snowball-website-development.up.railway.app",
+    "https://0.0.0.0",
+    "https://www.snowballtools.xyz",
+    "https://www.snowballtools.com",
+]

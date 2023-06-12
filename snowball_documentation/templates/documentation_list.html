@@ -1,25 +1,14 @@
 {% extends 'base.html' %}
 
+{% load markdown_filter %}
 {% load bootstrap5 %}
 
 {% block content %}
-<h2>Documentation List</h2>
-<div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Component</th>
-                <th>Technology</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for doc in object_list %}
-            <tr>
-                <td><a href="{% url 'documentation-detail' doc.pk %}">{{ doc.component }}</a></td>
-                <td>{{ doc.get_technology_display }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h2>Documentation</h2>
+{% for doc in object_list %}
+<div class="card p-2">
+    <h1><a href="{% url 'documentation-detail' doc.pk %}">{{ doc.component }}</a></h1>
+    <div>{{ doc.content|markdown|safe }}</div>
 </div>
+{% endfor %}
 {% endblock %}

@@ -2,12 +2,33 @@
 
 {% load markdown_filter %}
 
+{% block title %}
+Documentation
+{% endblock %}
+
 {% block content %}
-<h2>Documentation</h2>
-{% for doc in object_list %}
-<div class="card p-2">
-    <h1><a href="{% url 'documentation-detail' doc.pk %}">{{ doc.component }}</a></h1>
-    <div>{{ doc.content|markdown|safe }}</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                {% for doc in documentation_list %}
+                <a class="nav-link {% if forloop.first %}active{% endif %}" id="v-pills-{{ doc.id }}-tab"
+                    data-bs-toggle="pill" href="#v-pills-{{ doc.id }}" role="tab" aria-controls="v-pills-{{ doc.id }}"
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ doc.component }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                {% for doc in documentation_list %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="v-pills-{{ doc.id }}"
+                    role="tabpanel" aria-labelledby="v-pills-{{ doc.id }}-tab">
+                    <h2>{{ doc.title }}</h2>
+                    <div>{{ doc.content|markdown|safe }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
-{% endfor %}
 {% endblock %}

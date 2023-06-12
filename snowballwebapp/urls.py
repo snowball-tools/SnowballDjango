@@ -20,4 +20,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("snowball_main.urls")),
     path("documentation/", include("snowball_documentation.urls")),
+    path("markdownx/", include("markdownx.urls")),
 ]

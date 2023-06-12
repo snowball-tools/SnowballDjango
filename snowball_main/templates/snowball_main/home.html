@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% load bootstrap5 %}
+
 {% block content %}
-<h1>Welcome to the Home Page!</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'snowball_main/css/styles.css' %}">
+
+<div class="center">
+    {% load static %}
+    <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo SVG">
+
+</div>
+
 {% endblock %}

@@ -2,11 +2,8 @@
 
 {% load bootstrap5 %}
 
+{% load markdownx %}
 {% block content %}
-<h2>{{ object.component }} - {{ object.get_technology_display }}</h2>
-<div class="card mt-3">
-    <div class="card-body">
-        <pre>{{ object.content }}</pre>
-    </div>
-</div>
+<h1>{{ documentation.title }}</h1>
+{{ documentation.content|markdownx }}
 {% endblock %}

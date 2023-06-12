@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404, render
+import markdown
 from django.views.generic import (
     ListView,
     DetailView,
@@ -34,3 +36,13 @@ class DocumentationDeleteView(DeleteView):
     model = Documentation
     template_name = "documentation_confirm_delete.html"
     success_url = "/"
+
+
+def documentation_detail(request, pk):
+    documentation = get_object_or_404(Documentation, pk=pk)
+    documentation.content = markdown.markdown(documentation.content)
+    return render(
+        request,
+        "snowball_documentation/documentation_detail.html",
+        {"documentation": documentation},
+    )

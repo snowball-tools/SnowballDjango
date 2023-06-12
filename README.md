@@ -7,6 +7,7 @@ Django web app with postgresql database
 ### Virtual Environment
 
 | Command | Task |
+| --- | --- |
 | `python -m venv venv` | create |
 | `. venv/bin/activate` | activate |
 | `deactivate` | deactivate |

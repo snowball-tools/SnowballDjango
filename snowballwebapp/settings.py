@@ -11,7 +11,7 @@ if BOOTSTRAP5_FOLDER not in sys.path:
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 

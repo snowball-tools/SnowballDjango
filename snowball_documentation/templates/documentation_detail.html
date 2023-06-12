@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
 
-{% load bootstrap5 %}
-
-{% load markdownx %}
 {% block content %}
 <h1>{{ documentation.title }}</h1>
-{{ documentation.content|markdownx }}
+{{ documentation.content|safe }}
 {% endblock %}

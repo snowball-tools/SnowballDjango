@@ -1,19 +1,36 @@
-{% load bootstrap5 %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>{% block title %}My Site{% endblock %}</title>
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Snowball{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #3391ff;">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="{% url 'snowball_main:home' %}">
+                <img src="https://raw.githubusercontent.com/snowball-tools/SnowballDjango/c0bb927132d7035724d1494dd7a49ddb59ff0072/snowball_main/static/snowball_main/svg/snowball.svg"
+                    alt="Snowball Logo" height="24">
+            </a>
+            <a class="nav-link" style="color:#ffff"
+                href="{% url 'snowball_documentation:documentation-list' %}">Docs</a>
+        </div>
+    </nav>
     <div class="container">
-        {% block content %}
-
-        {% endblock %}
+        {% block content %}{% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+            integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+            crossorigin="anonymous"></script>
     </div>
 </body>
 

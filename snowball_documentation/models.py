@@ -1,4 +1,3 @@
-from markdownx.models import MarkdownxField
 from django.db import models
 
 TECHNOLOGY_CHOICES = [
@@ -15,7 +14,7 @@ class Documentation(models.Model):
         choices=TECHNOLOGY_CHOICES,
         default="SW",
     )
-    content = MarkdownxField()
+    content = models.TextField()
 
     def __str__(self):
         return f"{self.get_technology_display()} - {self.component}"

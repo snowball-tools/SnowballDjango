@@ -1,17 +1,11 @@
 import os
-import sys
 from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Include BOOTSTRAP5_FOLDER in path
-BOOTSTRAP5_FOLDER = os.path.abspath(os.path.join(BASE_DIR, "..", "bootstrap5"))
-if BOOTSTRAP5_FOLDER not in sys.path:
-    sys.path.insert(0, BOOTSTRAP5_FOLDER)
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = False
+DEBUG = int(os.environ.get("DEBUG", 1))
 
 ALLOWED_HOSTS = ["*"]
 
@@ -22,12 +16,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "bootstrap5",
     "oauth2_provider",
     "social_django",
-    "snowball_documentation",
     "snowball_main",
-    "markdownx",
+    "snowball_documentation",
 ]
 
 MIDDLEWARE = [
@@ -109,15 +101,7 @@ USE_TZ = True
 
 USE_L10N = True
 
-STATIC_URL = "/static/"
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Settings for django-bootstrap-v5
-BOOTSTRAP5 = {
-    "error_css_class": "bootstrap5-error",
-    "required_css_class": "bootstrap5-required",
-    "javascript_in_head": True,
-}

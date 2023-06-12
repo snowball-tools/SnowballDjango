@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     "social_django",
     "snowball_documentation",
     "snowball_main",
-    "markdownx",
 ]
 
 MIDDLEWARE = [

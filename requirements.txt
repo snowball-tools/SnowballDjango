@@ -7,5 +7,3 @@ whitenoise==6.2.0
 django-bootstrap-v5==1.0.11
 django-oauth-toolkit==2.3.0
 social-auth-app-django==5.2.0
-markdown==3.4.3
-django-markdownx==4.0.2

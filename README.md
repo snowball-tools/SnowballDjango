@@ -25,14 +25,14 @@ railway login
 railway link
 ```
 
-### Running
+### Run
 
 ```bash
 railway shell
 railway run python manage.py migrate && python manage.py collectstatic --noinput && gunicorn snowballwebapp.wsgi
 ```
 
-## Deployment
+## Deploy
 
 ```bash
 railway up
@@ -42,3 +42,5 @@ railway up
 
 * [Django](https://www.djangoproject.com/)
 * [Railway](https://railway.app/)
+* [PostgreSQL](https://www.postgresql.org/)
+* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) using [django-bootstrap-v5](https://django-bootstrap-v5.readthedocs.io/en/latest/quickstart.html)

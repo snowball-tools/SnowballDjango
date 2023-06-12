@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load bootstrap5 %}
+
+{% block content %}
+<h2>Documentation List</h2>
+<a href="{% url 'documentation-create' %}" class="btn btn-primary mb-3">Create New</a>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Technology</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in object_list %}
+            <tr>
+                <td><a href="{% url 'documentation-detail' doc.pk %}">{{ doc.component }}</a></td>
+                <td>{{ doc.get_technology_display }}</td>
+                <td>
+                    <a href="{% url 'documentation-update' doc.pk %}" class="btn btn-secondary">Edit</a>
+                    <a href="{% url 'documentation-delete' doc.pk %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

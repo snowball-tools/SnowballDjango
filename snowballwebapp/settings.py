@@ -1,9 +1,15 @@
 import os
+import sys
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = "ajsdksakajsdkja"
+# Include BOOTSTRAP5_FOLDER in path
+BOOTSTRAP5_FOLDER = os.path.abspath(os.path.join(BASE_DIR, "..", "bootstrap5"))
+if BOOTSTRAP5_FOLDER not in sys.path:
+    sys.path.insert(0, BOOTSTRAP5_FOLDER)
+
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = True
 
@@ -16,6 +22,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "bootstrap5",
+    "oauth2_provider",
+    "social_django",
+    "snowball_documentation",
+    "snowball_main",
 ]
 
 MIDDLEWARE = [
@@ -34,7 +45,7 @@ ROOT_URLCONF = "snowballwebapp.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],  # for project-wide templates
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -95,15 +106,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+USE_L10N = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_URL = "/static/"
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Settings for django-bootstrap-v5
+BOOTSTRAP5 = {
+    "error_css_class": "bootstrap5-error",
+    "required_css_class": "bootstrap5-required",
+    "javascript_in_head": True,
+}

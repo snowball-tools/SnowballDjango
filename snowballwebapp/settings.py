@@ -18,8 +18,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "oauth2_provider",
     "social_django",
-    "snowball_documentation",
     "snowball_main",
+    "snowball_documentation",
 ]
 
 MIDDLEWARE = [

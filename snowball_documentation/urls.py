@@ -7,6 +7,8 @@ from .views import (
     DocumentationDeleteView,
 )
 
+app_name = "snowball_documentation"
+
 urlpatterns = [
     path("", DocumentationListView.as_view(), name="documentation-list"),
     path("new/", DocumentationCreateView.as_view(), name="documentation-create"),

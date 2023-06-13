@@ -14,7 +14,7 @@ Documentation
                 {% for doc in documentation_list %}
                 <a class="nav-link {% if forloop.first %}active{% endif %}" id="v-pills-{{ doc.id }}-tab"
                     data-bs-toggle="pill" href="#v-pills-{{ doc.id }}" role="tab" aria-controls="v-pills-{{ doc.id }}"
-                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"yy>{{ doc.component }}</a>
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ doc.component }}</a>
                 {% endfor %}
             </div>
         </div>

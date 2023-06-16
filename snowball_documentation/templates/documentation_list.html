@@ -7,6 +7,16 @@ Documentation
 {% endblock %}
 
 {% block content %}
+<style>
+    .nav-pills .nav-link {
+        color: #3391ff;
+    }
+
+    .nav-pills .nav-link.active {
+        background-color: #3391ff;
+        color: #ffffff;
+    }
+</style>
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-2">
@@ -14,7 +24,9 @@ Documentation
                 {% for doc in documentation_list %}
                 <a class="nav-link {% if forloop.first %}active{% endif %}" id="v-pills-{{ doc.id }}-tab"
                     data-bs-toggle="pill" href="#v-pills-{{ doc.id }}" role="tab" aria-controls="v-pills-{{ doc.id }}"
-                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{ doc.component }}</a>
+                    aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                    {{ doc.component }}
+                </a>
                 {% endfor %}
             </div>
         </div>

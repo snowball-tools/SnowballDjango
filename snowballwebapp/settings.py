@@ -16,8 +16,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "oauth2_provider",
-    "social_django",
     "snowball_main",
     "snowball_documentation",
 ]

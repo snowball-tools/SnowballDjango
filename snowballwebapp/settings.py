@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = False
+DEBUG = int(os.environ.get("DEBUG", 1))
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(",")
 

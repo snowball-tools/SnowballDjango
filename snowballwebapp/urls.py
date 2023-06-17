@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from snowball_main import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("snowball_main.urls")),
-    path(
-        "documentation/",
-        include("snowball_documentation.urls")
-    ),
+    path("documentation/", include("snowball_documentation.urls")),
 ]
+
+handler404 = views.page_not_found
+handler500 = views.server_error
+handler403 = views.permission_denied
+handler400 = views.bad_request

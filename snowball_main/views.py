@@ -6,13 +6,13 @@ from django.views.defaults import (
 
 
 def home(request):
-    return render(request, "snowball_main/home.html")
+    return render(request, "home.html")
 
 
 def error_view(request, exception=None, error_code=None):
     return render(
         request,
-        "snowball_main/error.html",
+        "error.html",
         {"error_code": error_code, "exception": exception},
     )
 

@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "snowball_main",
-    "snowball_documentation",
 ]
 
 MIDDLEWARE = [

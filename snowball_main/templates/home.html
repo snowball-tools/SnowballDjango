@@ -2,13 +2,16 @@
 
 {% block content %}
 {% load static %}
-<style>
-    a,
-    h1 {
-        color: #3391ff;
-    }
-</style>
+<link href="{% static 'snowball_main/css/home.css' %}" rel="stylesheet">
+<link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
 
+<aside draggable="true" id="dragme" class="draggable-element">
+    <a href="https://github.com/snowball-tools/SnowballSwiftKit">SnowballSwiftKit</a>
+</aside>
+
+<aside draggable="true" id="dragme" class="draggable-element">
+    This is an aside, drag me.
+</aside>
 <div class="container d-flex align-items-center justify-content-center" style="height: 76vh;">
     <h1>In progress...</h1>
 </div>
@@ -23,5 +26,7 @@
     <a href="https://github.com/snowball-tools/SnowballExampleTypescriptExpo">Example Typescript React Native Expo
         App</a>
 </h4>
+
+<script src="{% static 'snowball_main/js/draggable.js' %}"></script>
 
 {% endblock %}

@@ -1,0 +1,10 @@
+aside {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  padding: 8px;
+}

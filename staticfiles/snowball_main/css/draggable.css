@@ -1,15 +1,48 @@
-#mydiv {
+.draggable-element {
+  width: 600px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #cccccc;
   position: absolute;
-  z-index: 9;
-  background-color: #f1f1f1;
-  text-align: center;
-  border: 1px solid #d3d3d3;
+  cursor: move;
 }
 
-#mydivheader {
-  padding: 10px;
-  cursor: move;
-  z-index: 10;
-  background-color: #2196f3;
-  color: #fff;
+.draggable-element:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  background: #ff5f56;
+  box-shadow: 24px 0 0 0 #ffbd44, 48px 0 0 0 #00ca4e;
+}
+
+.draggable-element-content {
+  padding: 40px;
+  font-family: "Helvetica", sans-serif;
+  color: #333;
+}
+
+#snowballswiftkit {
+  top: 10%;
+  left: 10%;
+}
+
+#snowballdjango {
+  top: 20%;
+  left: 20%;
+}
+
+#convertSVGToSFSymbol {
+  top: 30%;
+  left: 10%;
+}
+
+#snowballExampleTypescriptExpo {
+  top: 40%;
+  left: 30%;
 }

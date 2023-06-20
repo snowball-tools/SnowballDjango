@@ -31,15 +31,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #3391ff;">
-        <div class="container-fluid d-flex justify-content-between">
-            <div></div>
-            <a class="nav-link" style="color:#ffff" href="https://docs.snowballtools.xyz">Docs</a>
-        </div>
-    </nav>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
     <script src="{% static 'snowball_main/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 

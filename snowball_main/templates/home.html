@@ -3,41 +3,39 @@
 {% block content %}
 {% load static %}
 
-<div class="mac-icon">
-    <img src="{% static 'snowball_main/svg/doc.svg' %}" alt="Document Icon">
-    <div class="mac-icon-label">Docs<img src="{% static 'snowball_main/svg/arrow.svg' %}" alt="Arrow Icon" height="10">
-    </div>
-</div>
-
 <link href="{% static 'snowball_main/css/home.css' %}" rel="stylesheet">
 <link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
 
-<div id="snowballswiftkit" class="draggable-element">
-    <div class="draggable-element-content">
+<div id="docIcon" class="draggable-element">
+    <img src="{% static 'snowball_main/svg/docIcon.svg' %}" alt="Document Icon" width="50%">
+</div>
+
+<div id="snowballswiftkit" class="draggable-element snowball-window">
+    <div class="snowball-window-content">
         <a href="https://github.com/snowball-tools/SnowballSwiftKit">SnowballSwiftKit</a>
     </div>
 </div>
 
-<div id="snowballdjango" class="draggable-element">
-    <div class="draggable-element-content">
+<div id="snowballdjango" class="draggable-element snowball-window">
+    <div class="snowball-window-content">
         <a href="https://github.com/snowball-tools/SnowballDjango">This Django App</a>
     </div>
 </div>
 
-<div id="convertSVGToSFSymbol" class="draggable-element">
-    <div class="draggable-element-content">
+<div id="convertSVGToSFSymbol" class="draggable-element snowball-window">
+    <div class="snowball-window-content">
         <a href="https://github.com/snowball-tools/ConvertSVGToSFSymbol">Convert SVG files to SF Symbol</a>
     </div>
 </div>
 
-<div id="snowballExampleTypescriptExpo" class="draggable-element">
-    <div class="draggable-element-content">
+<div id="snowballExampleTypescriptExpo" class="draggable-element snowball-window">
+    <div class="snowball-window-content">
         <a href="https://github.com/snowball-tools/SnowballExampleTypescriptExpo">Example Typescript React Native Expo
             App</a>
     </div>
 </div>
 
-<div class="container d-flex align-items-center justify-content-center" style="height: 80vh">
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
     <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" width="80%">
 </div>
 

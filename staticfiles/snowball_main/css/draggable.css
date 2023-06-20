@@ -1,13 +1,9 @@
 .draggable-element {
-  background: #ffffff;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid #cccccc;
   position: absolute;
   cursor: move;
 }
 
-.draggable-element:before {
+.snowball-window:before {
   content: "";
   position: absolute;
   width: 10px;
@@ -19,38 +15,17 @@
   box-shadow: 12px 0 0 0 #ffbd44, 24px 0 0 0 #00ca4e;
 }
 
-.draggable-element-content {
+.snowball-window-content {
   padding: 24px 10px 10px 10px;
   font-family: "Helvetica", sans-serif;
   color: #333;
 }
 
-.mac-icon {
-  margin: 50px;
-  position: absolute;
-  border-radius: 12px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mac-icon::before {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  background-size: contain;
-}
-
-.mac-icon-label {
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
-  text-align: center;
-  font-family: "Helvetica", sans-serif;
-  color: #ffffff;
-  font-size: 14px;
+.snowball-window {
+  background: #fff;
+  border: 1px solid #cccccc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
 }
 
 #snowballswiftkit {
@@ -71,6 +46,11 @@
 #snowballExampleTypescriptExpo {
   top: 80%;
   left: 5%;
+}
+
+#docIcon {
+  top: 5%;
+  left: 90%;
 }
 
 @media (max-width: 480px) {

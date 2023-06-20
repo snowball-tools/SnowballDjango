@@ -3,6 +3,11 @@ for (var i = 0; i < elements.length; i++) {
   dragElement(elements[i]);
 }
 
+var docIcon = document.getElementById("docIcon");
+docIcon.addEventListener("click", function () {
+  window.location.href = "https://docs.snowballtools.xyz";
+});
+
 function dragElement(elmnt) {
   var pos1 = 0,
     pos2 = 0,

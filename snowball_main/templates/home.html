@@ -2,26 +2,38 @@
 
 {% block content %}
 {% load static %}
-<style>
-    a,
-    h1 {
-        color: #3391ff;
-    }
-</style>
+<link href="{% static 'snowball_main/css/home.css' %}" rel="stylesheet">
+<link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
 
-<div class="container d-flex align-items-center justify-content-center" style="height: 76vh;">
-    <h1>In progress...</h1>
+<div id="snowballswiftkit" class="draggable-element">
+    <div class="draggable-element-content">
+        <a href="https://github.com/snowball-tools/SnowballSwiftKit">SnowballSwiftKit</a>
+    </div>
 </div>
 
-<h4 class="container align-items-center justify-content-center">
-    <a href="https://github.com/snowball-tools/SnowballSwiftKit">SnowballSwiftKit</a>
-    <br>
-    <a href="https://github.com/snowball-tools/SnowballDjango">This Django App</a>
-    <br>
-    <a href="https://github.com/snowball-tools/ConvertSVGToSFSymbol">Convert SVG files to SF Symbol</a>
-    <br>
-    <a href="https://github.com/snowball-tools/SnowballExampleTypescriptExpo">Example Typescript React Native Expo
-        App</a>
-</h4>
+<div id="snowballdjango" class="draggable-element">
+    <div class="draggable-element-content">
+        <a href="https://github.com/snowball-tools/SnowballDjango">This Django App</a>
+    </div>
+</div>
+
+<div id="convertSVGToSFSymbol" class="draggable-element">
+    <div class="draggable-element-content">
+        <a href="https://github.com/snowball-tools/ConvertSVGToSFSymbol">Convert SVG files to SF Symbol</a>
+    </div>
+</div>
+
+<div id="snowballExampleTypescriptExpo" class="draggable-element">
+    <div class="draggable-element-content">
+        <a href="https://github.com/snowball-tools/SnowballExampleTypescriptExpo">Example Typescript React Native Expo
+            App</a>
+    </div>
+</div>
+
+<div class="container d-flex align-items-center justify-content-center" style="height: 76vh;">
+    <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" height="20%">
+</div>
+
+<script src="{% static 'snowball_main/js/draggable.js' %}"></script>
 
 {% endblock %}

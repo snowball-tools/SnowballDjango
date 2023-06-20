@@ -1,0 +1,46 @@
+.draggable-element {
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #cccccc;
+  position: absolute;
+  cursor: move;
+}
+
+.draggable-element:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 10px;
+  left: 10px;
+  background: #ff5f56;
+  box-shadow: 12px 0 0 0 #ffbd44, 24px 0 0 0 #00ca4e;
+}
+
+.draggable-element-content {
+  padding: 24px 10px 10px 10px;
+  font-family: "Helvetica", sans-serif;
+  color: #333;
+}
+
+#snowballswiftkit {
+  top: 10%;
+  left: 10%;
+}
+
+#snowballdjango {
+  top: 20%;
+  left: 80%;
+}
+
+#convertSVGToSFSymbol {
+  top: 60%;
+  left: 60%;
+}
+
+#snowballExampleTypescriptExpo {
+  top: 80%;
+  left: 30%;
+}

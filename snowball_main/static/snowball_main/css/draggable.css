@@ -1,10 +1,31 @@
-aside {
+.draggable-element {
+  cursor: move;
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 200px;
-  background: rgba(255, 255, 255, 0.66);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  padding: 8px;
+  z-index: 9;
+  background-color: #ffff;
+  text-align: center;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 10px;
+  color: #000000;
+}
+
+#snowballswiftkit {
+  top: 10%;
+  left: 10%;
+}
+
+#snowballdjango {
+  top: 20%;
+  left: 20%;
+}
+
+#convertSVGToSFSymbol {
+  top: 30%;
+  left: 10%;
+}
+
+#snowballExampleTypescriptExpo {
+  top: 40%;
+  left: 30%;
 }

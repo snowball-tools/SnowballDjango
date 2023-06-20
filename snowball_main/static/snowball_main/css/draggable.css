@@ -25,9 +25,38 @@
   color: #333;
 }
 
+.mac-icon {
+  margin: 50px;
+  position: absolute;
+  border-radius: 12px;
+  text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mac-icon img {
+  width: 100%;
+}
+
+.mac-icon-label {
+  width: 100%;
+  text-align: center;
+  font-family: "Helvetica", sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.mac-icon-label span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
 #snowballswiftkit {
   top: 10%;
-  left: 10%;
+  left: 20%;
 }
 
 #snowballdjango {
@@ -37,10 +66,20 @@
 
 #convertSVGToSFSymbol {
   top: 60%;
-  left: 60%;
+  left: 70%;
 }
 
 #snowballExampleTypescriptExpo {
   top: 80%;
-  left: 30%;
+  left: 5%;
+}
+
+@media (max-width: 480px) {
+  #snowballdjango {
+    left: 30%;
+  }
+
+  #convertSVGToSFSymbol {
+    left: 40%;
+  }
 }

@@ -2,6 +2,13 @@
 
 {% block content %}
 {% load static %}
+
+<div class="mac-icon">
+    <img src="{% static 'snowball_main/svg/doc.svg' %}" alt="Document Icon">
+    <div class="mac-icon-label">Docs<img src="{% static 'snowball_main/svg/arrow.svg' %}" alt="Arrow Icon" height="10">
+    </div>
+</div>
+
 <link href="{% static 'snowball_main/css/home.css' %}" rel="stylesheet">
 <link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
 
@@ -30,8 +37,8 @@
     </div>
 </div>
 
-<div class="container d-flex align-items-center justify-content-center" style="height: 76vh;">
-    <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" height="20%">
+<div class="container d-flex align-items-center justify-content-center" style="height: 80vh">
+    <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" width="80%">
 </div>
 
 <script src="{% static 'snowball_main/js/draggable.js' %}"></script>

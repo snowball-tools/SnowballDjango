@@ -21,6 +21,12 @@
   color: #333;
 }
 
+.snowball-icon-content {
+  padding-top: 20px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
 .snowball-window {
   background: #fff;
   border: 1px solid #cccccc;
@@ -34,8 +40,8 @@
 }
 
 #snowballdjango {
-  top: 20%;
-  left: 80%;
+  top: 30%;
+  left: 60%;
 }
 
 #convertSVGToSFSymbol {
@@ -60,5 +66,9 @@
 
   #convertSVGToSFSymbol {
     left: 40%;
+  }
+
+  #docIcon {
+    left: 60%;
   }
 }

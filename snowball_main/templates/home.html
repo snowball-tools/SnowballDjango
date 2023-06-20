@@ -3,11 +3,14 @@
 {% block content %}
 {% load static %}
 
-<link href="{% static 'snowball_main/css/home.css' %}" rel="stylesheet">
+<link href="{% static 'snowball_main/css/theme.css' %}" rel="stylesheet">
 <link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
 
 <div id="docIcon" class="draggable-element">
-    <img src="{% static 'snowball_main/svg/docIcon.svg' %}" alt="Document Icon" width="50%">
+    <div class="snowball-icon-content">
+        <img src="{% static 'snowball_main/svg/doc.svg' %}" alt="Document Icon" width="50vh">
+        <div>Docs ↗</div>
+    </div>
 </div>
 
 <div id="snowballswiftkit" class="draggable-element snowball-window">

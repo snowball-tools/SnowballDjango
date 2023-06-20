@@ -3,13 +3,9 @@
 {% load static %}
 
 {% block content %}
-<style>
-    a,
-    h1 {
-        color: #3391ff;
-    }
-</style>
-<div class="container d-flex align-items-center justify-content-center" style="height: 76vh;">
+<link href="{% static 'snowball_main/css/theme.css' %}" rel="stylesheet">
+
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
     <h1>Error {{ error_code }}</h1>
 </div>
 {% endblock %}

@@ -7,7 +7,31 @@ from django import forms
 
 
 def Home(request):
-    return render(request, "home.html", {"links": Window.objects.all()})
+    # overengineered this and backtracking. can source from database (for funsies)
+    links = [
+        Window(
+            name="SnowballSwiftKit",
+            url="https://github.com/snowball-tools/SnowballSwiftKit",
+            elementId="snowballswiftkit",
+        ),
+        Window(
+            name="This Django App",
+            url="https://github.com/snowball-tools/SnowballDjango",
+            elementId="thisdjangoapp",
+        ),
+        Window(
+            name="Convert SVG files to SF Symbol",
+            url="https://github.com/snowball-tools/ConvertSVGToSFSymbol",
+            elementId="convertsvgfilestosfsymbol",
+        ),
+        Window(
+            name="Example Typescript React Native Expo App",
+            url="https://github.com/snowball-tools/SnowballExampleTypescriptExpo",
+            elementId="exampletypescriptreactnativeexpoapp",
+        ),
+    ]
+
+    return render(request, "home.html", {"links": links})
 
 
 class SnowballPasskey(forms.Form):

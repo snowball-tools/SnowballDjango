@@ -106,5 +106,7 @@ SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
+SESSION_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
+
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")

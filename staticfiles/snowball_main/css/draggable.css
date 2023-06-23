@@ -3,22 +3,38 @@
   cursor: move;
 }
 
-.snowball-window:before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
+.title-bar {
+  height: 20px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: move;
+}
+
+.button {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  top: 10px;
-  left: 10px;
+  margin-right: 5px;
+}
+
+.close-button {
   background: #ff5f56;
-  box-shadow: 12px 0 0 0 #ffbd44, 24px 0 0 0 #00ca4e;
+}
+
+.minimize-button {
+  background: #ffbd2e;
+}
+
+.maximize-button {
+  background: #27c93f;
 }
 
 .snowball-window-content {
-  padding: 24px 10px 10px 10px;
-  font-family: "Helvetica", sans-serif;
-  color: #333;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }
 
 .snowball-icon-content {
@@ -29,9 +45,11 @@
 
 .snowball-window {
   background: #fff;
-  border: 1px solid #cccccc;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
+  border: 1px solid #aaa;
+  position: absolute;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 #snowballswiftkit {
@@ -39,17 +57,17 @@
   left: 20%;
 }
 
-#snowballdjango {
+#thisdjangoapp {
   top: 30%;
   left: 60%;
 }
 
-#convertSVGToSFSymbol {
+#convertsvgfilestosfsymbol {
   top: 60%;
   left: 70%;
 }
 
-#snowballExampleTypescriptExpo {
+#exampletypescriptreactnativeexpoapp {
   top: 80%;
   left: 5%;
 }
@@ -60,11 +78,11 @@
 }
 
 @media (max-width: 480px) {
-  #snowballdjango {
+  #thisdjangoapp {
     left: 30%;
   }
 
-  #convertSVGToSFSymbol {
+  #convertsvgfilestosfsymbol {
     left: 40%;
   }
 

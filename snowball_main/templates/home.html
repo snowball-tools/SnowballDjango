@@ -10,29 +10,20 @@
     </div>
 </div>
 
-<div id="snowballswiftkit" class="draggable-element snowball-window">
+{% for window in links %}
+
+<div id="{{ window.id }}" class="snowball-window">
+    <div class="title-bar" id="title-bar-{{ window.id }}">
+        <div class="button close-button" id="close-btn-{{ window.id }}"></div>
+        <div class="button minimize-button" id="min-btn-{{ window.id }}"></div>
+        <div class="button maximize-button" id="max-btn-{{ window.id }}"></div>
+        {{ window.title }}
+    </div>
     <div class="snowball-window-content">
-        <a href="https://github.com/snowball-tools/SnowballSwiftKit">SnowballSwiftKit</a>
+        <a href="{{ window.url }}">{{ window.name }}</a>
     </div>
 </div>
 
-<div id="snowballdjango" class="draggable-element snowball-window">
-    <div class="snowball-window-content">
-        <a href="https://github.com/snowball-tools/SnowballDjango">This Django App</a>
-    </div>
-</div>
-
-<div id="convertSVGToSFSymbol" class="draggable-element snowball-window">
-    <div class="snowball-window-content">
-        <a href="https://github.com/snowball-tools/ConvertSVGToSFSymbol">Convert SVG files to SF Symbol</a>
-    </div>
-</div>
-
-<div id="snowballExampleTypescriptExpo" class="draggable-element snowball-window">
-    <div class="snowball-window-content">
-        <a href="https://github.com/snowball-tools/SnowballExampleTypescriptExpo">Example Typescript React Native Expo
-            App</a>
-    </div>
-</div>
+{% endfor %}
 
 {% endblock %}

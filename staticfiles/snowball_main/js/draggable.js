@@ -1,4 +1,4 @@
-var elements = document.getElementsByClassName("draggable-element");
+var elements = document.getElementsByClassName("snowball-window");
 for (var i = 0; i < elements.length; i++) {
   dragElement(elements[i]);
 }
@@ -7,6 +7,7 @@ var docIcon = document.getElementById("docIcon");
 docIcon.addEventListener("click", function () {
   window.location.href = "https://docs.snowballtools.xyz";
 });
+dragElement(docIcon);
 
 function dragElement(elmnt) {
   var pos1 = 0,

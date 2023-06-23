@@ -1,14 +1,36 @@
 from django.shortcuts import render
-from django.views.defaults import (
-    server_error as django_server_error,
-    page_not_found as django_page_not_found,
-)
+from django.http import JsonResponse
+from django.views.defaults import server_error as django_server_error
 
 
 def home(request):
     return render(request, "home.html")
 
 
+# https://developer.apple.com/documentation/xcode/supporting-associated-domains
+def apple_app_site_association(request):
+    data = {
+        "applinks": {
+            "details": [
+                {
+                    "appIDs": [
+                        "xyz.snowballtools.example",
+                    ],
+                    "components": [],
+                }
+            ]
+        },
+        "webcredentials": {"apps": ["xyz.snowballtools.example"]},
+        "appclips": {
+            "apps": [
+                "xyz.snowballtools.example.Clips",
+            ]
+        },
+    }
+    return JsonResponse(data)
+
+
+# error views
 def error_view(request, exception=None, error_code=None):
     return render(
         request,

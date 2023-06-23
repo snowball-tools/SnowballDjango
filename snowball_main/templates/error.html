@@ -3,9 +3,13 @@
 {% load static %}
 
 {% block content %}
-<link href="{% static 'snowball_main/css/theme.css' %}" rel="stylesheet">
 
 <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <h1>Error {{ error_code }}</h1>
+    <div class="draggable-element snowball-window">
+        <div class="draggable-element-content">
+            <h1>Error {{ error_code }}</h1>
+        </div>
+    </div>
 </div>
+
 {% endblock %}

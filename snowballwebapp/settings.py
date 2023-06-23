@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    "snowball_passkey",
     "snowball_main",
 ]
 

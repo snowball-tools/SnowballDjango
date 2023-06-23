@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import include, path
 from snowball_main import views
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include("snowball_main.urls"))]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include("snowball_main.urls")),
+]
 
 handler404 = views.page_not_found
 handler500 = views.server_error

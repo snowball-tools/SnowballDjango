@@ -45,6 +45,9 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+            "libraries": {
+                "snowball_window": "snowball_main.templatetags.snowball_window"
+            },
         },
     },
 ]

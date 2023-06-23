@@ -1,22 +1,10 @@
 {% extends 'base.html' %}
 
 {% load static %}
+{% load snowball_window %}
 
 {% block content %}
 
-<div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
-    <div id="{{ window.id }}" class="snowball-window">
-        <div class="title-bar" id="title-bar-{{ window.id }}">
-            <div class="button close-button" id="close-btn-{{ window.id }}"></div>
-            <div class="button minimize-button" id="min-btn-{{ window.id }}"></div>
-            <div class="button maximize-button" id="max-btn-{{ window.id }}"></div>
-            {{ window.title }}
-        </div>
-        <div class="snowball-window-content">
-            {{ window.name }}
-        </div>
-    </div>
-</div>
-
+{% snowball-window window %}
 
 {% endblock %}

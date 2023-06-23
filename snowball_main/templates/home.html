@@ -3,9 +3,6 @@
 {% block content %}
 {% load static %}
 
-<link href="{% static 'snowball_main/css/theme.css' %}" rel="stylesheet">
-<link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
-
 <div id="docIcon" class="draggable-element">
     <div class="snowball-icon-content">
         <img src="{% static 'snowball_main/svg/doc.svg' %}" alt="Document Icon" width="50vh">
@@ -37,11 +34,5 @@
             App</a>
     </div>
 </div>
-
-<div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
-    <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" width="80%">
-</div>
-
-<script src="{% static 'snowball_main/js/draggable.js' %}"></script>
 
 {% endblock %}

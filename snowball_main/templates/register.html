@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="aaaa" class="snowball-window" >
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        <form method="post">
+            <h1>Register</h1>
+            <p>Enter your name to register</p>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

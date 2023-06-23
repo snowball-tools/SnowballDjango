@@ -19,7 +19,11 @@ from snowball_main import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("snowball_main.urls")),
+    path("", include("snowball_main.urls", namespace="snowball_main")),
+    path(
+        "passkey/",
+        include("snowball_passkey.urls", namespace="snowball_passkey"),
+    ),
 ]
 
 handler404 = views.page_not_found

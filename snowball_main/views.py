@@ -1,11 +1,26 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
 from .models import Window
+from django import forms
 
 
 def Home(request):
     return render(request, "home.html", {"links": Window.objects.all()})
+
+
+class SnowballPasskey(forms.Form):
+    name = forms.CharField(max_length=100)
+
+
+def register(request):
+    form = SnowballPasskey(request.POST or None)
+
+    if form.is_valid():
+        return HttpResponseRedirect("/")
+
+    return render(request, "register.html", {"form": form})
 
 
 # error views

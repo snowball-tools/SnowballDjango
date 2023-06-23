@@ -1,11 +1,12 @@
 {% load static %}
 
 {% block content %}
-<div id="{{ window.id }}" class="snowball-window">
-    <div class="title-bar" id="title-bar-{{ window.id }}">
-        <div class="button close-button" id="close-btn-{{ window.id }}"></div>
-        <div class="button minimize-button" id="min-btn-{{ window.id }}"></div>
-        <div class="button maximize-button" id="max-btn-{{ window.id }}"></div>
+
+<div id="{{ window.elementId }}" class="snowball-window">
+    <div class="title-bar" id="title-bar-{{ window.elementId }}">
+        <div class="button close-button" id="close-btn-{{ window.elementId }}"></div>
+        <div class="button minimize-button" id="min-btn-{{ window.elementId }}"></div>
+        <div class="button maximize-button" id="max-btn-{{ window.elementId }}"></div>
         {{ window.title }}
     </div>
     <div class="snowball-window-content">

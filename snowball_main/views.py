@@ -50,11 +50,8 @@ def apple_app_site_association(request):
 
 # error views
 def error_view(request, exception=None, error_code=None):
-    return render(
-        request,
-        "error.html",
-        {"error_code": error_code, "exception": exception},
-    )
+    windowModel = LinkModel(name=exception, title=error_code)
+    return render(request, "error.html", {"window": windowModel})
 
 
 def server_error(request, *args, **kwargs):
@@ -81,7 +78,7 @@ class LinkModel:
     id = ""
     title = ""
 
-    def __init__(self, name, url, title=""):
+    def __init__(self, name, url="", title=""):
         self.name = name
         self.url = url
         self.id = name.lower().replace(" ", "")

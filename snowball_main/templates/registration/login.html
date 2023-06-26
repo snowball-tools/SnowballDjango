@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="aaaa" class="snowball-window" style="height: 80vh; width: 80vw; top: 10vh; left: 10vw;">
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        {% endif %}
+        {% csrf_token %}
+        <button id="webauthin-register">Register new key</button>
+    </div>
+</div>
+
+<script src="{% static 'snowball_passkey/js/register.js' %}"></script>
+{% endblock %}

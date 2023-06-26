@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "compressor",
     "snowball_main",
+    "snowball_blog",
 ]
 
 MIDDLEWARE = [

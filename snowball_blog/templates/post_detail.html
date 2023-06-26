@@ -1,0 +1,26 @@
+{% load static %}
+{% load compress %}
+
+{% block content %}
+{% compress css %}
+<link type="text/x-scss" href="{% static 'snowball_main/bootstrap/bootstrap.scss' %}" rel="stylesheet" media="screen">
+{% endcompress %}
+<link rel="stylesheet" href="{% static 'snowball_main/css/.css' %}">
+<link rel="stylesheet" href="{% static 'snowball_main/css/theme.css' %}">
+<link rel="stylesheet" href="{% static 'snowball_main/css/draggable.css' %}">
+
+<div id="{{ post.slug }}" class="draggable-element"
+    style="background-color: white; position: relative; left: 10vw; top: 10vh; width: 80vw; height: 80vh;">
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        <h1>{% block title %}{{ object.title }}{% endblock title %}</h1>
+        <p class="text-muted">{{ post.created_on }}</p>
+        <p class="card-text ">{{ object.content | safe }}</p>
+    </div>
+</div>
+
+{% endblock content %}

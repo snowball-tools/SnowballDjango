@@ -19,7 +19,9 @@ from snowball_main import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
+    path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
 ]
 
 handler404 = views.page_not_found

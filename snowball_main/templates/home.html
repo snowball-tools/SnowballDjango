@@ -2,8 +2,11 @@
 
 {% block content %}
 {% load static %}
+{% include "register.html" %}
 
 {% load snowball_window %}
+{% csrf_token %}
+<button id="webauthin-register">Register new key</button>
 
 <div id="docIcon" class="draggable-element">
     <div class="snowball-icon-content">

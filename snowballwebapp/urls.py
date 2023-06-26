@@ -22,6 +22,7 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
     path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
+    path("passkey/", include("snowball_passkey.urls", namespace="snowball_passkey")),
 ]
 
 handler404 = views.page_not_found

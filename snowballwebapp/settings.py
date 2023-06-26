@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "compressor",
     "snowball_main",
     "snowball_blog",
+    "snowball_passkey",
 ]
 
 MIDDLEWARE = [
@@ -97,7 +98,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+AUTHENTICATION_BACKENDS = (
+    "snowball_passkey.auth.WebAuthinBackend",
+    "django.contrib.auth.backends.ModelBackend",
+)
+
+LOGIN_REDIRECT_URL = "/"
+LOGIN_ERROR_URL = "/"
+REGISTRATION_REDIRECT_URL = "/"
+REGISTRATION_ERROR_URL = "/"
+SITE_ID = 1
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

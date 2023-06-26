@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = int(os.environ.get("DEBUG", 1))
+DEBUG = int(os.environ.get("DEBUG", 1)) == 1
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(",")
 
@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "compressor",
     "snowball_main",
 ]
 
@@ -51,6 +52,12 @@ TEMPLATES = [
             },
         },
     },
+]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 
 WSGI_APPLICATION = "snowballwebapp.wsgi.application"
@@ -106,11 +113,14 @@ USE_L10N = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+COMPRESS_ENABLED = DEBUG
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
-SESSION_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")

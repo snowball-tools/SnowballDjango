@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +8,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Snowball{% endblock %}</title>
-    <link href="{% static 'snowball_main/css/bootstrap.min.css' %}" rel="stylesheet">
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'snowball_main/bootstrap/bootstrap.scss' %}" rel="stylesheet"
+        media="screen">
+    {% endcompress %}
     <link href="{% static 'snowball_main/css/theme.css' %}" rel="stylesheet">
     <link href="{% static 'snowball_main/css/draggable.css' %}" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'snowball_main/images/apple-touch-icon.png' %}">

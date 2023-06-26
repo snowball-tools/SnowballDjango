@@ -5,3 +5,5 @@ psycopg2==2.9.6
 sqlparse==0.4.2
 whitenoise==6.2.0
 markdown2==2.4.8
+django_compressor==4.3.1
+django-libsass==0.9

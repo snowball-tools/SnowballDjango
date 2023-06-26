@@ -1,6 +1,6 @@
 import os
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
 from .models import Window
@@ -43,7 +43,8 @@ def register(request):
     form = SnowballPasskey(request.POST or None)
 
     if form.is_valid():
-        return HttpResponseRedirect("/")
+        # redirect to a new URL: /passkey/login/begin/
+        return redirect("snowball_passkey:login-begin")
 
     return render(request, "register.html", {"form": form})
 

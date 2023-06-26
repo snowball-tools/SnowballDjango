@@ -30,21 +30,12 @@ from webauthn.helpers.structs import (
     UserVerificationRequirement,
 )
 
-from . import settings as wa_settings
+from snowballwebapp import settings
 from .models import SnowballAuth
 
 logger = logging.getLogger(__name__)
 
 User = get_user_model()
-
-
-def login_view(request):
-    return render(request, "auth.html")
-
-
-def register_view(request):
-    return render(request, "register.html")
-
 
 @csrf_exempt
 @login_required
@@ -89,7 +80,7 @@ def register_verify(request):
         messages.error(request, "Invalid authentication data.")
         if settings.DEBUG:
             logger.debug(f"{e}: {request.POST}")
-        return redirect(wa_settings.LOGIN_ERROR_URL)
+        return redirect(settings.LOGIN_ERROR_URL)
 
     try:
         registration_verification = verify_registration_response(
@@ -101,7 +92,7 @@ def register_verify(request):
         )
     except InvalidRegistrationResponse as e:
         messages.error(request, "Registration failed. Error: {}".format(e))
-        return redirect(wa_settings.REGISTRATION_ERROR_URL)
+        return redirect(settings.REGISTRATION_ERROR_URL)
 
     auth_data = SnowballAuth.objects.filter(
         credential_id=registration_verification.credential_id.decode()
@@ -111,7 +102,7 @@ def register_verify(request):
             request,
             "This key is already registered to an account. Try logging in with it.",
         )
-        return redirect(wa_settings.REGISTRATION_ERROR_URL)
+        return redirect(settings.REGISTRATION_ERROR_URL)
 
     SnowballAuth.objects.create(
         user=request.user,
@@ -119,7 +110,7 @@ def register_verify(request):
         public_key=registration_verification.credential_public_key.decode(),
     )
     messages.success(request, "Your key has been successfully registered.")
-    return redirect(wa_settings.REGISTRATION_REDIRECT_URL)
+    return redirect(settings.REGISTRATION_REDIRECT_URL)
 
 
 @csrf_exempt
@@ -144,23 +135,23 @@ def login_verify(request):
     encoded_challenge = request.session.get("challenge")
     if not encoded_challenge:
         messages.error(request, "No challenge exists for your session.")
-        return redirect(wa_settings.LOGIN_ERROR_URL)
+        return redirect(settings.LOGIN_ERROR_URL)
 
     try:
         credential = AuthenticationCredential.parse_raw(request.POST)
     except ValidationError:
         messages.error(request, "Invalid authentication data.")
-        return redirect(wa_settings.LOGIN_ERROR_URL)
+        return redirect(settings.LOGIN_ERROR_URL)
 
     user = authenticate(request, credential=credential)
     if user is None:
         messages.error(request, "Your credentials could not be validated.")
-        return redirect(wa_settings.LOGIN_ERROR_URL)
+        return redirect(settings.LOGIN_ERROR_URL)
 
     login(request, user)
 
     messages.success(request, "You have been successfully logged in.")
-    return redirect(wa_settings.LOGIN_REDIRECT_URL)
+    return redirect(settings.LOGIN_REDIRECT_URL)
 
 
 @login_required
@@ -172,7 +163,7 @@ def rename_key(request):
         key.name = request.POST["name"]
         key.save()
         messages.success(request, "The key has been renamed.")
-    return redirect(wa_settings.REGISTRATION_REDIRECT_URL)
+    return redirect(settings.REGISTRATION_REDIRECT_URL)
 
 
 @login_required
@@ -183,4 +174,4 @@ def delete_key(request):
     else:
         key.delete()
         messages.success(request, "The key has been deleted.")
-    return redirect(wa_settings.REGISTRATION_REDIRECT_URL)
+    return redirect(settings.REGISTRATION_REDIRECT_URL)

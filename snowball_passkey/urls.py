@@ -11,6 +11,4 @@ urlpatterns = [
     path("register/verify/", views.register_verify, name="register-verify"),
     path("key/rename/", views.rename_key, name="rename-key"),
     path("key/delete/", views.delete_key, name="delete-key"),
-    path("login/", views.login_view, name="login"),
-    path("register/", views.register_view, name="register"),
 ]

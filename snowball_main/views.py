@@ -79,12 +79,12 @@ def apple_app_site_association(request):
         "applinks": {
             "details": [
                 {
-                    "appIDs": [os.environ.get("SUPPORTEDAPPS").split(",")],
+                    "appIDs": ["9SAQ42S589.xyz.snowballtools.example"],
                     "components": [],
                 }
             ]
         },
-        "webcredentials": {"apps": os.environ.get("SUPPORTEDAPPS").split(",")},
+        "webcredentials": {"apps": ["9SAQ42S589.xyz.snowballtools.example"]},
         "appclips": {
             "apps": [
                 "xyz.snowballtools.example.Clips",

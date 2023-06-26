@@ -1,3 +1,4 @@
+import os
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -78,14 +79,12 @@ def apple_app_site_association(request):
         "applinks": {
             "details": [
                 {
-                    "appIDs": [
-                        "xyz.snowballtools.example",
-                    ],
+                    "appIDs": [os.environ.get("SUPPORTEDAPPS").split(",")],
                     "components": [],
                 }
             ]
         },
-        "webcredentials": {"apps": ["xyz.snowballtools.example"]},
+        "webcredentials": {"apps": os.environ.get("SUPPORTEDAPPS").split(",")},
         "appclips": {
             "apps": [
                 "xyz.snowballtools.example.Clips",

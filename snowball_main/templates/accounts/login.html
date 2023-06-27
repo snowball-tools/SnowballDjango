@@ -16,7 +16,7 @@
             {% get_providers as socialaccount_providers %}
             {% for provider in socialaccount_providers %}
             <li>
-                <a href="{% provider_login_url provider.id process=" login" %}">
+                <a href="{% provider_login_url provider.id process='login' %}">
                     Login with {{ provider.name }}
                 </a>
             </li>

@@ -139,7 +139,7 @@ CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 SOCIALACCOUNT_PROVIDERS = {
     "apple": {
         "APP": {
-            "client_id": "xyz.snowballtools.example",
+            "client_id": "9SAQ42S589.xyz.snowballtools.example",
             "secret": "66Y3P4RV6X",
             "key": "9SAQ42S589",
             "certificate_key": """-----BEGIN PRIVATE KEY-----
@@ -151,3 +151,5 @@ zSEzx3SuD3tfl9e5dsRCaJvD3p/yRYUbW/C5ug+QkrUn3BI3gw8TgQmANXLVRjOQ
         }
     }
 }
+
+LOGIN_REDIRECT_URL = "/"

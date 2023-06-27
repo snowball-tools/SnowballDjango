@@ -20,6 +20,12 @@ INSTALLED_APPS = [
     "compressor",
     "snowball_main",
     "snowball_blog",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.apple",
+    "allauth.socialaccount.providers.facebook",
 ]
 
 MIDDLEWARE = [
@@ -47,6 +53,7 @@ TEMPLATES = [
                 "django.template.context_processors.csrf",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
             "libraries": {
                 "snowball_window": "snowball_main.templatetags.snowball_window"
@@ -97,7 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/

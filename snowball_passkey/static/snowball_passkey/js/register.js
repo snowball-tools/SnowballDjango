@@ -225,6 +225,7 @@ const didClickRegister = async (e) => {
  * @param {FormData} formData
  */
 const getCredentialCreateOptionsFromServer = async () => {
+  console.log("{% url 'snowball_passkey:register-begin' %}");
   return await fetch_json("{% url 'snowball_passkey:register-begin' %}", {
     method: "POST",
   });

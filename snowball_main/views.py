@@ -40,13 +40,7 @@ class SnowballPasskey(forms.Form):
 
 
 def login(request):
-    form = SnowballPasskey(request.POST or None)
-
-    if form.is_valid():
-        # redirect to a new URL: /passkey/login/begin/
-        return redirect("snowball_passkey:login-begin")
-
-    return render(request, "login.html", {"form": form})
+    return render(request, "registration/login.html")
 
 
 # error views

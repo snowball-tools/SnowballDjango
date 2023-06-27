@@ -7,6 +7,11 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = int(os.environ.get("DEBUG", 1)) == 1
 
+if DEBUG:
+    os.environ["HTTPS"] = "on"
+    os.environ["SSL_CERT_FILE"] = os.path.join(BASE_DIR, "localhost.crt")
+    os.environ["SSL_KEY_FILE"] = os.path.join(BASE_DIR, "localhost.key")
+
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(",")
 
 INSTALLED_APPS = [

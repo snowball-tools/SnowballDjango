@@ -1,10 +1,15 @@
-import os
+from allauth.account.forms import LoginForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
 from .models import Window
 from django import forms
+
+
+def login(request):
+    login_form = LoginForm()
+    return render(request, "account/login.html", {"login_form": login_form})
 
 
 def Home(request):

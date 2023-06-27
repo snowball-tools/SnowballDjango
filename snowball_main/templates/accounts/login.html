@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="aaaa" class="snowball-window">
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        <ul class="socialaccount_providers">
+            {% load socialaccount %}
+            {% get_providers as socialaccount_providers %}
+            {% for provider in socialaccount_providers %}
+            <li>
+                <a href="{% provider_login_url provider.id process=" login" %}">
+                    Login with {{ provider.name }}
+                </a>
+            </li>
+            {% endfor %}
+            <form method="POST">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit">Log In</button>
+            </form>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

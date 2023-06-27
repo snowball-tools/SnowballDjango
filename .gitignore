@@ -141,3 +141,4 @@ GitHub.sublime-settings
 # macOS
 .DS_Store
 localhost.key
+SocialAccountProviders.py

@@ -7,11 +7,6 @@ from .models import Window
 from django import forms
 
 
-def login(request):
-    login_form = LoginForm()
-    return render(request, "account/login.html", {"login_form": login_form})
-
-
 def Home(request):
     # overengineered this and backtracking. can source from database (for funsies)
     links = [

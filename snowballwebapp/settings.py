@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from .SocialAccountProviders import SOCIALACCOUNT_PROVIDERS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -136,20 +137,5 @@ SESSION_COOKIE_SECURE = not DEBUG
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
-SOCIALACCOUNT_PROVIDERS = {
-    "apple": {
-        "APP": {
-            "client_id": "9SAQ42S589.xyz.snowballtools.example",
-            "secret": "66Y3P4RV6X",
-            "key": "9SAQ42S589",
-            "certificate_key": """-----BEGIN PRIVATE KEY-----
-MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg0O36/F0Mq+tkNKSi
-Rc1WWjpnTP527bpmlm+8FNfZIJigCgYIKoZIzj0DAQehRANCAAQ8OZti3hQIsVgK
-zSEzx3SuD3tfl9e5dsRCaJvD3p/yRYUbW/C5ug+QkrUn3BI3gw8TgQmANXLVRjOQ
-+8/r8If3
------END PRIVATE KEY-----""",
-        }
-    }
-}
-
+SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
 LOGIN_REDIRECT_URL = "/"

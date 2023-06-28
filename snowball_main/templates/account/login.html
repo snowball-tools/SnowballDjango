@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load account socialaccount %}
+{% block head_title %}Sign In{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'snowball_main/css/social.css' %}">
+
+<div id="{{ window.elementId }}" class="snowball-window" style="width: 80vw; height: 80vh; top: 10vh; left: 10vw">
+    <div class="title-bar" id="title-bar-{{ window.elementId }}">
+        <div class="button close-button" id="close-btn-{{ window.elementId }}"></div>
+        <div class="button minimize-button" id="min-btn-{{ window.elementId }}"></div>
+        <div class="button maximize-button" id="max-btn-{{ window.elementId }}"></div>
+        {{ window.title }}
+    </div>
+    <div class="snowball-window-content">
+        <h1>Sign In</h1>
+
+        {% get_providers as socialaccount_providers %}
+
+        {% if socialaccount_providers %}
+        <p>
+            Please sign in with one of your existing third party accounts. Or,
+            <a href="{{ signup_url }}">sign up</a>
+            for a {{ site_name }} account and sign in below:
+        </p>
+
+        {% for provider in socialaccount_providers %}
+        <a class="btn social-btn {{ provider.id }}-btn" href="{% provider_login_url provider.id process='login' %}">
+            <i class="fab fa-{{ provider.id }}"></i> Login with {{ provider.name }}
+        </a>
+        {% endfor %}
+
+        {% include "socialaccount/snippets/login_extra.html" %} {% else %} <p>If you have not created an account
+            yet,
+            then please
+            <a href="{{ signup_url }}">sign up</a> first.
+        </p>
+        {% endif %}
+
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">Email:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="email" class="form-control">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Password:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="password" id="inputPassword6" class="form-control"
+                        aria-labelledby="passwordHelpInline">
+                </div>
+            </div>
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Forgot
+                Password?</a>
+            <br>
+            <button class="primaryAction" type="submit">Sign In</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+/* styles.css */
+.social-btn {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.google-btn {
+  background-color: #db4437;
+}
+
+.facebook-btn {
+  background-color: #3b5998;
+}
+
+.apple-btn {
+  background-color: #000;
+}

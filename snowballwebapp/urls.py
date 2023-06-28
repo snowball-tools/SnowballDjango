@@ -19,7 +19,7 @@ from snowball_main import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("allauth.urls")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
     path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
     path("passkey/", include("snowball_passkey.urls", namespace="snowball_passkey")),

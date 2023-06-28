@@ -10,5 +10,4 @@ urlpatterns = [
         views.apple_app_site_association,
         name="apple-app-site-association",
     ),
-    path("login/", views.login, name="login"),
 ]

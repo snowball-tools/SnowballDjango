@@ -142,3 +142,4 @@ GitHub.sublime-settings
 .DS_Store
 localhost.crt
 localhost.key
+SocialAccountProviders.py

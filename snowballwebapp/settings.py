@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from .SocialAccountProviders import SOCIALACCOUNT_PROVIDERS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,12 @@ INSTALLED_APPS = [
     "compressor",
     "snowball_main",
     "snowball_blog",
-    "snowball_passkey",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.apple",
+    "allauth.socialaccount.providers.facebook",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +59,7 @@ TEMPLATES = [
                 "django.template.context_processors.csrf",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
             "libraries": {
                 "snowball_window": "snowball_main.templatetags.snowball_window"
@@ -104,8 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    "snowball_passkey.auth.WebAuthinBackend",
     "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
 LOGIN_REDIRECT_URL = "/"
@@ -140,3 +147,6 @@ CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
+
+SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
+LOGIN_REDIRECT_URL = "/"

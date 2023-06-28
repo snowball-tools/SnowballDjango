@@ -7,5 +7,4 @@ whitenoise==6.2.0
 markdown2==2.4.8
 django_compressor==4.3.1
 django-libsass==0.9
-webauthn==1.8.1
-pydantic==1.10.9
+django-allauth==0.54

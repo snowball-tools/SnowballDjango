@@ -1,15 +1,23 @@
-/* styles.css */
 .social-btn {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  text-align: center;
   color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 5px;
-  text-decoration: none;
+  padding: 10px;
+}
+
+.social-btn i {
+  margin-right: 5px;
 }
 
 .google-btn {
-  background-color: #db4437;
+  background-color: #4285f4;
 }
 
 .facebook-btn {
@@ -17,5 +25,19 @@
 }
 
 .apple-btn {
-  background-color: #000;
+  background-color: #000000;
+}
+
+.login {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.row {
+  padding-top: 10px;
+}
+
+.primaryAction {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

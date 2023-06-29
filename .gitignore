@@ -143,3 +143,4 @@ GitHub.sublime-settings
 localhost.crt
 localhost.key
 SocialAccountProviders.py
+SOCIALACCOUNT_PROVIDERS.py

@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from SOCIALACCOUNT_PROVIDERS import SOCIALACCOUNT_PROVIDERS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -158,3 +159,5 @@ SESSION_COOKIE_SECURE = not DEBUG
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 LOGIN_REDIRECT_URL = "/"
+
+SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS

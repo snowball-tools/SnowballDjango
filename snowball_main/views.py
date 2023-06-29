@@ -1,6 +1,4 @@
-from allauth.account.forms import LoginForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
 from .models import Window
@@ -33,14 +31,6 @@ def Home(request):
     ]
 
     return render(request, "home.html", {"links": links})
-
-
-class SnowballPasskey(forms.Form):
-    name = forms.CharField(max_length=100)
-
-
-def login(request):
-    return render(request, "registration/login.html")
 
 
 # error views

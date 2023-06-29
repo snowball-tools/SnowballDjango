@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from .SocialAccountProviders import SOCIALACCOUNT_PROVIDERS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -49,6 +48,15 @@ ROOT_URLCONF = "snowballwebapp.urls"
 
 TEMPLATES = [
     {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        "DIRS": [os.path.join(BASE_DIR, "jinja2_templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "environment": "snowballwebapp.jinja2.environment",
+        },
+        "NAME": "jinja2",
+    },
+    {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
@@ -65,6 +73,7 @@ TEMPLATES = [
                 "snowball_window": "snowball_main.templatetags.snowball_window"
             },
         },
+        "NAME": "django",
     },
 ]
 
@@ -148,5 +157,4 @@ SESSION_COOKIE_SECURE = not DEBUG
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
-SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
 LOGIN_REDIRECT_URL = "/"

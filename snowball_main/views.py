@@ -1,4 +1,3 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
@@ -34,19 +33,6 @@ def Home(request):
     return render(request, "home.html", {"links": links})
 
 
-class SnowballPasskey(forms.Form):
-    name = forms.CharField(max_length=100)
-
-
-def register(request):
-    form = SnowballPasskey(request.POST or None)
-
-    if form.is_valid():
-        return HttpResponseRedirect("/")
-
-    return render(request, "register.html", {"form": form})
-
-
 # error views
 def error_view(request, exception=None, error_code=None):
     return render(
@@ -78,14 +64,12 @@ def apple_app_site_association(request):
         "applinks": {
             "details": [
                 {
-                    "appIDs": [
-                        "xyz.snowballtools.example",
-                    ],
+                    "appIDs": ["9SAQ42S589.xyz.snowballtools.example"],
                     "components": [],
                 }
             ]
         },
-        "webcredentials": {"apps": ["xyz.snowballtools.example"]},
+        "webcredentials": {"apps": ["9SAQ42S589.xyz.snowballtools.example"]},
         "appclips": {
             "apps": [
                 "xyz.snowballtools.example.Clips",

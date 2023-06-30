@@ -5,7 +5,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = int(os.environ.get("DEBUG", 1))
+DEBUG = int(os.environ.get("DEBUG", 1)) == 1
+
+if DEBUG:
+    os.environ["HTTPS"] = "on"
+    os.environ["SSL_CERT_FILE"] = os.path.join(BASE_DIR, "localhost.crt")
+    os.environ["SSL_KEY_FILE"] = os.path.join(BASE_DIR, "localhost.key")
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(",")
 
@@ -17,7 +22,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "compressor",
     "snowball_main",
+    "snowball_blog",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.apple",
+    "allauth.socialaccount.providers.facebook",
 ]
 
 MIDDLEWARE = [
@@ -35,6 +48,15 @@ ROOT_URLCONF = "snowballwebapp.urls"
 
 TEMPLATES = [
     {
+        "BACKEND": "django.template.backends.jinja2.Jinja2",
+        "DIRS": [os.path.join(BASE_DIR, "jinja2_templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "environment": "snowballwebapp.jinja2.environment",
+        },
+        "NAME": "jinja2",
+    },
+    {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
@@ -45,12 +67,20 @@ TEMPLATES = [
                 "django.template.context_processors.csrf",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
             "libraries": {
                 "snowball_window": "snowball_main.templatetags.snowball_window"
             },
         },
+        "NAME": "django",
     },
+]
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 ]
 
 WSGI_APPLICATION = "snowballwebapp.wsgi.application"
@@ -89,7 +119,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+LOGIN_REDIRECT_URL = "/"
+LOGIN_ERROR_URL = "/"
+REGISTRATION_REDIRECT_URL = "/"
+REGISTRATION_ERROR_URL = "/"
+SITE_ID = 1
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -106,11 +145,53 @@ USE_L10N = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+COMPRESS_ENABLED = DEBUG
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
-SESSION_COOKIE_SECURE = int(os.environ.get("DEBUG", 1)) == 0
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
 
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
+
+LOGIN_REDIRECT_URL = "/"
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "METHOD": "oauth2",
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+        "APP": {
+            "client_id": os.environ["GOOGLE_CLIENT_ID"],
+            "secret": os.environ["GOOGLE_CLIENT_SECRET"],
+            "key": os.environ["GOOGLE_API_KEY"],
+            "redirect_uri": "https://snowballtools.xyz/accounts/google/login/callback/",
+            "scope": ["profile", "email"],
+            "token_url": "https://oauth2.googleapis.com/token",
+            "authorize_url": "https://accounts.google.com/o/oauth2/auth",
+        },
+    },
+    "apple": {
+        "APP": {
+            "client_id": "9SAQ42S589.xyz.snowballtools.example",
+            "secret": os.environ["APPLE_SECRET"],
+            "key": os.environ["APPLE_TEAM_ID"],
+            "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
+        }
+    },
+    "facebook": {
+        "METHOD": "oauth2",
+        "APP": {
+            "client_id": os.environ["FACEBOOK_CLIENT_ID"],
+            "secret": os.environ["FACEBOOK_SECRET"],
+            "redirect_uri": "https://snowballtools.xyz/accounts/facebook/login/callback/",
+            "scope": ["email"],
+            "token_url": "https://graph.facebook.com/v11.0/oauth/access_token",
+            "authorize_url": "https://www.facebook.com/v11.0/dialog/oauth",
+        },
+    },
+}

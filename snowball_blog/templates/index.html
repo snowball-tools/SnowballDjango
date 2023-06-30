@@ -1,0 +1,28 @@
+{% load static %}
+{% load compress %}
+
+{% block content %}
+{% compress css %}
+<link type="text/x-scss" href="{% static 'snowball_main/bootstrap/bootstrap.scss' %}" rel="stylesheet" media="screen">
+{% endcompress %}
+<link rel="stylesheet" href="{% static 'snowball_main/css/.css' %}">
+<link rel="stylesheet" href="{% static 'snowball_main/css/theme.css' %}">
+<link rel="stylesheet" href="{% static 'snowball_main/css/draggable.css' %}">
+
+{% for post in post_list %}
+<div id="{{ post.slug }}" class="draggable-element"
+    style="background-color: white; position: relative; margin-top: 10px; margin-bottom: 10px; left: 10vw; right: 10vh; width: 80vw;">
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        <h1><a href="{% url 'snowball_blog:post_detail' post.slug %}">{{ post.title }}</a></h1>
+        <p>{{ post.date_posted }}</p>
+        <p>{{ post.content }}</p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

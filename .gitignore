@@ -140,3 +140,6 @@ GitHub.sublime-settings
 
 # macOS
 .DS_Store
+localhost.crt
+localhost.key
+apple_cer.p8

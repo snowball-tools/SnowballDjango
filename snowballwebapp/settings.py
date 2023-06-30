@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
-from SOCIALACCOUNT_PROVIDERS import SOCIALACCOUNT_PROVIDERS
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -160,4 +161,35 @@ CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 LOGIN_REDIRECT_URL = "/"
 
-SOCIALACCOUNT_PROVIDERS = SOCIALACCOUNT_PROVIDERS
+with open("apple_cer.p8", "rb") as key_file:
+    private_key = serialization.load_pem_private_key(
+        key_file.read(), password=None, backend=default_backend()
+    )
+
+    SOCIALACCOUNT_PROVIDERS = {
+        "google": {
+            "METHOD": "oauth2",
+            "SCOPE": [
+                "profile",
+                "email",
+            ],
+            "AUTH_PARAMS": {
+                "access_type": "online",
+            },
+            "OAUTH_PKCE_ENABLED": True,
+        },
+        "apple": {
+            "APP": {
+                "client_id": "9SAQ42S589.xyz.snowballtools.example",
+                "secret": os.environ["APPLE_SECRET"],
+                "key": os.environ["APPLE_KEY"],
+                "certificate_key": private_key,
+            }
+        },
+        "facebook": {
+            "METHOD": "oauth2",
+            "SCOPE": ["email"],
+            "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+            "LOCALE_FUNC": lambda request: "en_US",
+        },
+    }

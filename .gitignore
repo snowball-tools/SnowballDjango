@@ -142,5 +142,4 @@ GitHub.sublime-settings
 .DS_Store
 localhost.crt
 localhost.key
-SocialAccountProviders.py
-SOCIALACCOUNT_PROVIDERS.py
+apple_cer.p8

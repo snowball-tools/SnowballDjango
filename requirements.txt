@@ -9,4 +9,4 @@ django_compressor==4.3.1
 django-libsass==0.9
 django-allauth==0.54
 Jinja2==3.1.2
-cryptography==2.21
+cryptography==41.0.1

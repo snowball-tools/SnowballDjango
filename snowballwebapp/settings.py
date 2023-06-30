@@ -162,27 +162,36 @@ LOGIN_REDIRECT_URL = "/"
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "METHOD": "oauth2",
-        "SCOPE": [
-            "profile",
-            "email",
-        ],
         "AUTH_PARAMS": {
             "access_type": "online",
         },
-        "OAUTH_PKCE_ENABLED": True,
+        "APP": {
+            "client_id": os.environ["GOOGLE_CLIENT_ID"],
+            "secret": os.environ["GOOGLE_CLIENT_SECRET"],
+            "key": os.environ["GOOGLE_API_KEY"],
+            "redirect_uri": "https://snowballtools.xyz/accounts/google/login/callback/",
+            "scope": ["profile", "email"],
+            "token_url": "https://oauth2.googleapis.com/token",
+            "authorize_url": "https://accounts.google.com/o/oauth2/auth",
+        },
     },
     "apple": {
         "APP": {
             "client_id": "9SAQ42S589.xyz.snowballtools.example",
             "secret": os.environ["APPLE_SECRET"],
-            "key": os.environ["APPLE_KEY"],
+            "key": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
         }
     },
     "facebook": {
         "METHOD": "oauth2",
-        "SCOPE": ["email"],
-        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
-        "LOCALE_FUNC": lambda request: "en_US",
+        "APP": {
+            "client_id": os.environ["FACEBOOK_CLIENT_ID"],
+            "secret": os.environ["FACEBOOK_SECRET"],
+            "redirect_uri": "https://snowballtools.xyz/accounts/facebook/login/callback/",
+            "scope": ["email"],
+            "token_url": "https://graph.facebook.com/v11.0/oauth/access_token",
+            "authorize_url": "https://www.facebook.com/v11.0/dialog/oauth",
+        },
     },
 }

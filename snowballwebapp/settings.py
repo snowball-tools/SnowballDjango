@@ -183,6 +183,9 @@ SOCIALACCOUNT_PROVIDERS = {
             "team_id": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
             "redirect_uri": "https://snowballtools.xyz/accounts/apple/login/callback/",
+            "scope": ["name", "email"],
+            "token_url": "https://appleid.apple.com/auth/token",
+            "authorize_url": "https://appleid.apple.com/auth/authorize",
         }
     },
     "facebook": {
@@ -191,7 +194,7 @@ SOCIALACCOUNT_PROVIDERS = {
             "client_id": os.environ["FACEBOOK_CLIENT_ID"],
             "secret": os.environ["FACEBOOK_SECRET"],
             "redirect_uri": "https://snowballtools.xyz/accounts/facebook/login/callback/",
-            "scope": ["email"],
+            "scope": ["name", "email"],
             "token_url": "https://graph.facebook.com/v11.0/oauth/access_token",
             "authorize_url": "https://www.facebook.com/v11.0/dialog/oauth",
         },

@@ -185,9 +185,11 @@ SOCIALACCOUNT_PROVIDERS = {
             "team_id": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
             "redirect_uri": "https://www.snowballtools.xyz/accounts/apple/login/callback/",
-            "scope": ["name", "email"],
+            "scope": ["email"],
             "token_url": "https://appleid.apple.com/auth/token",
             "authorize_url": "https://appleid.apple.com/auth/authorize",
+            "response_mode": "form_post",
+            "response_type": "code id_token",
         }
     },
     "facebook": {

@@ -22,9 +22,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
     path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
-    path("dj-rest-auth/", include("dj_rest_auth.urls")),
-    path("dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
 ]
 
 handler404 = views.page_not_found

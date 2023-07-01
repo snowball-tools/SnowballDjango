@@ -9,5 +9,3 @@ django_compressor==4.3.1
 django-libsass==0.9
 django-allauth==0.54.0
 Jinja2==3.1.2
-dj-rest-auth==4.0.1
-djangorestframework==3.14.0

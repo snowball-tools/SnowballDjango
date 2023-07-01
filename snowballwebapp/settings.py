@@ -151,6 +151,7 @@ COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 
 CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
@@ -169,7 +170,7 @@ SOCIALACCOUNT_PROVIDERS = {
             "client_id": os.environ["GOOGLE_CLIENT_ID"],
             "secret": os.environ["GOOGLE_CLIENT_SECRET"],
             "key": os.environ["GOOGLE_API_KEY"],
-            "redirect_uri": "https://snowballtools.xyz/accounts/google/login/callback/",
+            "redirect_uri": "https://www.snowballtools.xyz/accounts/google/login/callback/",
             "scope": ["profile", "email"],
             "token_url": "https://oauth2.googleapis.com/token",
             "authorize_url": "https://accounts.google.com/o/oauth2/auth",
@@ -182,7 +183,7 @@ SOCIALACCOUNT_PROVIDERS = {
             "key": os.environ["APPLE_KEY_ID"],
             "team_id": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
-            "redirect_uri": "https://snowballtools.xyz/accounts/apple/login/callback/",
+            "redirect_uri": "https://www.snowballtools.xyz/accounts/apple/login/callback/",
             "scope": ["name", "email"],
             "token_url": "https://appleid.apple.com/auth/token",
             "authorize_url": "https://appleid.apple.com/auth/authorize",
@@ -193,7 +194,10 @@ SOCIALACCOUNT_PROVIDERS = {
         "APP": {
             "client_id": os.environ["FACEBOOK_CLIENT_ID"],
             "secret": os.environ["FACEBOOK_SECRET"],
-            "redirect_uri": "https://snowballtools.xyz/accounts/facebook/login/callback/",
+            "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+            "INIT_PARAMS": {"cookie": True},
+            "EXCHANGE_TOKEN": True,
+            "redirect_uri": "https://www.snowballtools.xyz/accounts/facebook/login/callback/",
             "scope": ["name", "email"],
             "token_url": "https://graph.facebook.com/v11.0/oauth/access_token",
             "authorize_url": "https://www.facebook.com/v11.0/dialog/oauth",

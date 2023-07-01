@@ -5,12 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = int(os.environ.get("DEBUG", 1)) == 1
-
-if DEBUG:
-    os.environ["HTTPS"] = "on"
-    os.environ["SSL_CERT_FILE"] = os.path.join(BASE_DIR, "localhost.crt")
-    os.environ["SSL_KEY_FILE"] = os.path.join(BASE_DIR, "localhost.key")
+DEBUG = os.environ["DEBUG"] == "True"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(",")
 
@@ -32,6 +27,10 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.apple",
     "allauth.socialaccount.providers.facebook",
+    "rest_framework",
+    "rest_framework.authtoken",
+    "dj_rest_auth",
+    "dj_rest_auth.registration",
 ]
 
 MIDDLEWARE = [

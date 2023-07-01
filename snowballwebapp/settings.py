@@ -145,7 +145,7 @@ USE_L10N = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-COMPRESS_ENABLED = DEBUG
+COMPRESS_ENABLED = True
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 SITE_ID = 1

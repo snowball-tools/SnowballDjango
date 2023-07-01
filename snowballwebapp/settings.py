@@ -128,6 +128,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookAppOAuth2",
     "social_core.backends.facebook.FacebookOAuth2",
     "social_core.backends.google.GoogleOAuth2",
+    "social_core.backends.apple.AppleIdAuth",
     "drf_social_oauth2.backends.DjangoOAuth2",
     "django.contrib.auth.backends.ModelBackend",
 )
@@ -191,3 +192,11 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
     "https://www.googleapis.com/auth/userinfo.email",
 ]
+
+# Apple
+SOCIAL_AUTH_APPLE_ID_CLIENT = os.environ["APPLE_CLIENT_ID"]
+SOCIAL_AUTH_APPLE_ID_TEAM = os.environ["APPLE_TEAM_ID"]
+SOCIAL_AUTH_APPLE_ID_KEY = os.environ["APPLE_KEY_ID"]
+SOCIAL_AUTH_APPLE_ID_SECRET = os.environ["APPLE_CLIENT_SECRET"]
+SOCIAL_AUTH_APPLE_ID_SCOPE = ["email"]
+SOCIAL_AUTH_APPLE_ID_EMAIL_AS_USERNAME = True

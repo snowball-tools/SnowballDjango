@@ -177,10 +177,12 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     "apple": {
         "APP": {
-            "client_id": "9SAQ42S589.xyz.snowballtools.example",
+            "client_id": os.environ["APPLE_CLIENT_ID"],
             "secret": os.environ["APPLE_SECRET"],
-            "key": os.environ["APPLE_TEAM_ID"],
+            "key": os.environ["APPLE_KEY_ID"],
+            "team_id": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
+            "redirect_uri": "https://snowballtools.xyz/accounts/apple/login/callback/",
         }
     },
     "facebook": {

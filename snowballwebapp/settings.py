@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "compressor",
     "snowball_main",
     "snowball_blog",
+    "snowball_authentication",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -160,6 +161,7 @@ CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 LOGIN_REDIRECT_URL = "/"
 
+SOCIALACCOUNT_ADAPTER = "snowball_authentication.adapter.SnowballSocialAccountAdapter"
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "METHOD": "oauth2",

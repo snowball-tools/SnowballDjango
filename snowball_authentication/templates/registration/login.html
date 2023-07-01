@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<meta name="appleid-signin-client-id" content="xyz.mobiletools.MobileToolsAuth.serviceid">
+<meta name="appleid-signin-redirect-uri" content="https://www.mobiletools.xyz/complete/apple-id/">
+
 <div id="{{ post.slug }}" class="draggable-element"
     style="background-color: white; position: relative; margin-top: 10px; margin-bottom: 10px; left: 10vw; right: 10vh; width: 80vw;">
     <div class="title-bar">
@@ -18,6 +21,17 @@
 
         <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
         <a href="{% url 'social:begin' 'google-oauth2' %}">Google</a>
+
+        <a href="{% url 'social:begin' 'apple-id' %}">Apple</a>
+        <style>
+            .signin-button {
+                width: 210px;
+                height: 40px;
+            }
+        </style>
+
+        <script type="text/javascript"
+            src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
 
         {% endif %}
     </div>

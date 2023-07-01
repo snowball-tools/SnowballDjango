@@ -127,6 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = (
     "social_core.backends.facebook.FacebookAppOAuth2",
     "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.google.GoogleOAuth2",
     "drf_social_oauth2.backends.DjangoOAuth2",
     "django.contrib.auth.backends.ModelBackend",
 )
@@ -183,3 +184,10 @@ SOCIAL_AUTH_FACEBOOK_SECRET = os.environ["FACEBOOK_SECRET"]
 SOCIAL_AUTH_FACEBOOK_SCOPE = ["email"]
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {"fields": "id, name, email"}
 SOCIAL_AUTH_FACEBOOK_API_VERSION = "17.0"
+
+# Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ["GOOGLE_CLIENT_ID"]
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ["GOOGLE_CLIENT_SECRET"]
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    "https://www.googleapis.com/auth/userinfo.email",
+]

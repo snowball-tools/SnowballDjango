@@ -180,7 +180,7 @@ SOCIALACCOUNT_PROVIDERS = {
             "key": os.environ["APPLE_KEY_ID"],
             "team_id": os.environ["APPLE_TEAM_ID"],
             "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
-            "redirect_uri": "https://www.snowballtools.xyz/accounts/apple/login/callback/",
+            "redirect_uri": "https://www.snowballtools.xyz/accounts/apple/login/callback/finish/",
             "scope": ["email"],
             "token_url": "https://appleid.apple.com/auth/token",
             "authorize_url": "https://appleid.apple.com/auth/authorize",

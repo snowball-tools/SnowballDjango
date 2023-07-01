@@ -14,14 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+
 from snowball_main import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path(
+        "",
+        include("django.contrib.auth.urls"),
+    ),
+    path("", include("social_django.urls", namespace="social")),
+    re_path("^auth/", include("drf_social_oauth2.urls", namespace="drf")),
+    re_path("^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
     path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
+    path(
+        "",
+        include("snowball_authentication.urls", namespace="snowball_authentication"),
+    ),
 ]
 
 handler404 = views.page_not_found

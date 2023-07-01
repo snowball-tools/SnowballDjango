@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="{{ post.slug }}" class="draggable-element"
+    style="background-color: white; position: relative; margin-top: 10px; margin-bottom: 10px; left: 10vw; right: 10vh; width: 80vw;">
+    <div class="title-bar">
+        <div class="button close-button"></div>
+        <div class="button minimize-button"></div>
+        <div class="button maximize-button"></div>
+    </div>
+    <div class="snowball-window-content">
+        {% if user.is_authenticated %}
+
+        <h1>{{ user.username }}</h1>
+
+        {% else %}
+
+        <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
+
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

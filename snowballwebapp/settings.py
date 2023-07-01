@@ -21,12 +21,6 @@ INSTALLED_APPS = [
     "snowball_main",
     "snowball_blog",
     "snowball_authentication",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",
-    "allauth.socialaccount.providers.apple",
-    "allauth.socialaccount.providers.facebook",
 ]
 
 MIDDLEWARE = [
@@ -115,10 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
 LOGIN_REDIRECT_URL = "/"
 LOGIN_ERROR_URL = "/"
@@ -155,47 +146,3 @@ SESSION_COOKIE_SECURE = not DEBUG
 CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS").split(",")
 
 LOGIN_REDIRECT_URL = "/"
-
-SOCIALACCOUNT_ADAPTER = "snowball_authentication.adapter.SnowballSocialAccountAdapter"
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "METHOD": "oauth2",
-        "AUTH_PARAMS": {
-            "access_type": "online",
-        },
-        "APP": {
-            "client_id": os.environ["GOOGLE_CLIENT_ID"],
-            "secret": os.environ["GOOGLE_CLIENT_SECRET"],
-            "key": os.environ["GOOGLE_API_KEY"],
-            "redirect_uri": "https://www.snowballtools.xyz/accounts/google/login/callback/",
-            "scope": ["profile", "email"],
-            "token_url": "https://oauth2.googleapis.com/token",
-            "authorize_url": "https://accounts.google.com/o/oauth2/auth",
-        },
-    },
-    "apple": {
-        "APP": {
-            "client_id": os.environ["APPLE_CLIENT_ID"],
-            "secret": os.environ["APPLE_SECRET"],
-            "key": os.environ["APPLE_KEY_ID"],
-            "team_id": os.environ["APPLE_TEAM_ID"],
-            "certificate_key": os.environ["APPLE_CERTIFICATE_KEY"],
-            "scope": ["email"],
-        }
-    },
-    "facebook": {
-        "METHOD": "oauth2",
-        "APP": {
-            "client_id": os.environ["FACEBOOK_CLIENT_ID"],
-            "secret": os.environ["FACEBOOK_SECRET"],
-            "AUTH_PARAMS": {"auth_type": "reauthenticate"},
-            "INIT_PARAMS": {"cookie": True},
-            "EXCHANGE_TOKEN": True,
-            "redirect_uri": "https://www.snowballtools.xyz/accounts/facebook/login/callback/",
-            "scope": ["email"],
-            "VERSION": "v17.0",
-            "LOCALE_FUNC": lambda request: "en_US",
-            "SDK_URL": "//connect.facebook.net/{locale}/sdk.js",
-        },
-    },
-}

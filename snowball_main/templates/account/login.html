@@ -27,7 +27,8 @@
         </p>
 
         {% for provider in socialaccount_providers %}
-        <a class="btn social-btn {{ provider.id }}-btn" href="{% provider_login_url provider.id process='login' %}">
+        <a class="btn social-btn {{ provider.id }}-btn"
+            href="{% provider_login_url provider.id process='login' method='oauth2' %}">
             <i class="fab fa-{{ provider.id }}"></i> Login with {{ provider.name }}
         </a>
         {% endfor %}

@@ -198,9 +198,10 @@ SOCIALACCOUNT_PROVIDERS = {
             "INIT_PARAMS": {"cookie": True},
             "EXCHANGE_TOKEN": True,
             "redirect_uri": "https://www.snowballtools.xyz/accounts/facebook/login/callback/",
-            "scope": ["name", "email"],
-            "token_url": "https://graph.facebook.com/v11.0/oauth/access_token",
-            "authorize_url": "https://www.facebook.com/v11.0/dialog/oauth",
+            "scope": ["email"],
+            "VERSION": "v17.0",
+            "LOCALE_FUNC": lambda request: "en_US",
+            "SDK_URL": "//connect.facebook.net/{locale}/sdk.js",
         },
     },
 }

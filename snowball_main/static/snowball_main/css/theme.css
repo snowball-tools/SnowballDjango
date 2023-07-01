@@ -15,16 +15,12 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  color: white;
+  color: black;
   padding: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-}
-
-.mac-header .logo {
-  font-size: 1.2em;
 }
 
 .mac-header .menu {
@@ -35,4 +31,8 @@ body {
 .mac-header .menu-item {
   padding: 0 15px;
   cursor: pointer;
+}
+
+.mac-header .icon {
+  padding-right: 15px;
 }

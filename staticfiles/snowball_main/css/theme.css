@@ -11,20 +11,28 @@ body {
 
 .mac-header {
   height: 30px;
-  background: #323232;
+  background: #8bc4ff;
   position: fixed;
   top: 0;
   width: 100%;
-  color: white;
+  color: black;
   padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
 .mac-header .logo {
   font-size: 1.2em;
 }
 
+.mac-header .menu {
+  display: flex;
+  align-items: center;
+}
+
 .mac-header .menu-item {
-  display: inline-block;
   padding: 0 15px;
   cursor: pointer;
 }

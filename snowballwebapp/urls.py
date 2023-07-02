@@ -19,8 +19,8 @@ from django.urls import include, path, re_path
 from snowball_main import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls, "admin", "admin"),
-    path("", include("django.contrib.auth.urls"), "auth", "auth"),
+    path("admin/", admin.site.urls),
+    path("", include("django.contrib.auth.urls")),
     path("", include("social_django.urls", namespace="social")),
     re_path("^auth/", include("drf_social_oauth2.urls", namespace="drf")),
     re_path("^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),

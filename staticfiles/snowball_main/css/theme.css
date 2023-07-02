@@ -107,6 +107,10 @@ html {
 }
 
 @media (max-width: 576px) {
+  .icon {
+    padding-right: 5px;
+  }
+
   .mac-header .menu-item {
     padding: 0 5px;
     font-size: 0.8em;

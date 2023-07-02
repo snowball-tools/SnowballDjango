@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="{% static 'snowball_main/css/draggable.css' %}">
 
 {% for post in post_list %}
-<div id="{{ post.slug }}" class="draggable-element"
-    style="background-color: white; position: relative; margin-top: 10px; margin-bottom: 10px; left: 10vw; right: 10vh; width: 80vw;">
+<div id="{{ post.slug }}" class="snowball-window" style="left: 10%; right: 10%; width: 80%;">
     <div class="title-bar">
         <div class="button close-button"></div>
         <div class="button minimize-button"></div>

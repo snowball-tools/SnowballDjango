@@ -25,7 +25,7 @@
     <link rel="shortcut icon" href="{% static 'snowball_main/images/favicon.ico' %}">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="msapplication-config" content="{% static 'snowball_main/images/browserconfig.xml' %}">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#8bc4ff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3Z1NBWKBZC"></script>
     <script>
@@ -38,12 +38,30 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <header class="mac-header">
+        <div class="container-fluid">
+            <div class="menu">
+                <img class="icon" src="{% static 'snowball_main/svg/snowball_icon_black.svg' %}" alt="snowball logo"
+                    height="30px">
+                <div class="menu-item">Finder</div>
+                <div class="menu-item">File</div>
+                <div class="menu-item">Edit</div>
+                <div class="menu-item">View</div>
+                <div class="menu-item">Go</div>
+                <div class="menu-item">Window</div>
+                <div class="menu-item">Help</div>
+            </div>
+        </div>
+    </header>
 
-    <div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
+    <div class="d-flex align-items-center justify-content-center snowball-desktop">
         <img src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo" width="80%">
     </div>
 
+    {% block content %}{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="{% static 'snowball_main/js/draggable.js' %}"></script>
     <script src="{% static 'snowball_main/js/bootstrap.bundle.min.js' %}"></script>
 </body>

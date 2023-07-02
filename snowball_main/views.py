@@ -4,7 +4,7 @@ from django.views.defaults import server_error as django_server_error
 from .models import Window
 
 
-def Home(request):
+def home(request):
     # overengineered this and backtracking. can source from database (for funsies)
     links = [
         Window(
@@ -38,7 +38,7 @@ def contact(request):
         "generic_window.html",
         {
             "window": Window(
-                title="contact",
+                title="Contact",
                 style="style='width: 80%; top: 10%; left: 10%; height: 80%;'",
                 contents="<p>viv@snowballtools.xyz</p>",
             )

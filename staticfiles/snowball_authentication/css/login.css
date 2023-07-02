@@ -30,7 +30,8 @@
   height: 24px;
 }
 
-.google-container {
+.google-container,
+.google-container:visited {
   padding: 15px;
   background: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.17);
@@ -49,7 +50,8 @@
   background: white;
 }
 
-.facebook-container {
+.facebook-container,
+.facebook-container:visited {
   padding: 15px;
   background: #1877f2;
   border-radius: 10px;
@@ -85,4 +87,8 @@
   width: 80%;
   top: 10%;
   left: 10%;
+}
+
+a {
+  text-decoration: none;
 }

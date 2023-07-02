@@ -3,14 +3,7 @@ from .models import Window
 
 
 class WindowAdmin(admin.ModelAdmin):
-    list_display = (
-        "name",
-        "title",
-        "url",
-        "top",
-        "left",
-        "elementId",
-    )
+    list_display = ("name", "title", "url", "elementId", "style", "contents")
 
     prepopulated_field = {"elementId": ("name",)}
 

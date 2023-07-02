@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.defaults import server_error as django_server_error
 from .models import Window
-from django import forms
 
 
 def Home(request):
@@ -33,10 +32,34 @@ def Home(request):
     return render(request, "home.html", {"links": links})
 
 
+def contact(request):
+    return render(
+        request,
+        "generic_window.html",
+        {
+            "window": Window(
+                title="contact",
+                style="style='width: 80%; top: 10%; left: 10%; height: 80%;'",
+                contents="<p>viv@snowballtools.xyz</p>",
+            )
+        },
+    )
+
+
 # error views
 def error_view(request, exception=None, error_code=None):
+    # to do fix exception handling
     return render(
-        request, "error.html", {"window": Window(name=exception, title=error_code)}
+        request,
+        "generic_window.html",
+        {
+            "window": Window(
+                name=exception,
+                title=error_code,
+                style="style='width: 80%; top: 10%; left: 10%; height: 80%;'",
+                contents="<p>error</p>",
+            )
+        },
     )
 
 

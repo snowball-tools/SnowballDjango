@@ -41,15 +41,20 @@
     <header class="mac-header">
         <div class="container-fluid">
             <div class="menu">
-                <img class="icon" src="{% static 'snowball_main/svg/snowball_icon_black.svg' %}" alt="snowball logo"
-                    height="30px">
-                <div class="menu-item">Finder</div>
-                <div class="menu-item">File</div>
-                <div class="menu-item">Edit</div>
-                <div class="menu-item">View</div>
-                <div class="menu-item">Go</div>
-                <div class="menu-item">Window</div>
-                <div class="menu-item">Help</div>
+                <a href="{% url 'snowball_main:home' %}">
+                    <img class="icon" src="{% static 'snowball_main/svg/snowball_icon_black.svg' %}" alt="snowball logo"
+                        height="30px">
+                </a>
+                {% if user.is_authenticated %}
+                <a class="menu-item" href="{% url 'snowball_authentication:profile' %}">{{ user.username }}</a>
+                {% else %}
+                <a class="menu-item" href="{% url 'login' %}">Login</a>
+                {% endif %}
+                <a class="menu-item" href="{% url 'snowball_main:contact' %}">Contact</a>
+                {% if user.is_authenticated %}
+                <a class="menu-item" href="{% url 'snowball_authentication:passkeys' %}">Passkeys</a>
+                <a class="menu-item" href="{% url 'logout' %}">Logout</a>
+                {% endif %}
             </div>
         </div>
     </header>

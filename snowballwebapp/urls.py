@@ -25,7 +25,7 @@ urlpatterns = [
     re_path("^auth/", include("drf_social_oauth2.urls", namespace="drf")),
     re_path("^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
     path("", include("snowball_main.urls", namespace="snowball_main")),
-    path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
+    # path("blog/", include("snowball_blog.urls", namespace="snowball_blog")),
     path(
         "",
         include("snowball_authentication.urls", namespace="snowball_authentication"),

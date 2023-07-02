@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<div id="{{ window.elementId }}" class="snowball-window">
+<div id="{{ window.elementId }}" class="snowball-window" {% if window.style %} style="width: 80%; top: 10%; left: 10%;"
+    {% endif %}>
     <div class="title-bar" id="title-bar-{{ window.elementId }}">
         <div class="button close-button" id="close-btn-{{ window.elementId }}"></div>
         <div class="button minimize-button" id="min-btn-{{ window.elementId }}"></div>
@@ -10,7 +11,11 @@
         {{ window.title }}
     </div>
     <div class="snowball-window-content">
+        {% if window.content %}
+        {{ window.content|safe }}
+        {% elif window.url %}
         <a href="{{ window.url }}">{{ window.name }}</a>
+        {% endif %}
     </div>
 </div>
 

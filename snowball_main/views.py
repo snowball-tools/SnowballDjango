@@ -35,8 +35,18 @@ def Home(request):
 
 # error views
 def error_view(request, exception=None, error_code=None):
+    # to do fix exception handling
     return render(
-        request, "error.html", {"window": Window(name=exception, title=error_code)}
+        request,
+        "error.html",
+        {
+            "window": Window(
+                name=exception,
+                title=error_code,
+                style="style='width: 80%; top: 10%; left: 10%; height: 80%;'",
+                contents="<p>" + str(exception) + "</p>",
+            )
+        },
     )
 
 

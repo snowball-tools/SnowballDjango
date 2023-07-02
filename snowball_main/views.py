@@ -64,12 +64,18 @@ def apple_app_site_association(request):
         "applinks": {
             "details": [
                 {
-                    "appIDs": ["9SAQ42S589.xyz.snowballtools.example"],
+                    "appIDs": [
+                        "9SAQ42S589.xyz.snowballtools.example, 9SAQ42S589.xyz.snowballtools.app"
+                    ],
                     "components": [],
                 }
             ]
         },
-        "webcredentials": {"apps": ["9SAQ42S589.xyz.snowballtools.example"]},
+        "webcredentials": {
+            "apps": [
+                "9SAQ42S589.xyz.snowballtools.example, 9SAQ42S589.xyz.snowballtools.app"
+            ]
+        },
         "appclips": {
             "apps": [
                 "xyz.snowballtools.example.Clips",

@@ -11,8 +11,8 @@
         {{ window.title }}
     </div>
     <div class="snowball-window-content">
-        {% if window.content %}
-        {{ window.content|safe }}
+        {% if window.contents %}
+        {{ window.contents|safe }}
         {% elif window.url %}
         <a href="{{ window.url }}">{{ window.name }}</a>
         {% endif %}

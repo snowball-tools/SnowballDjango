@@ -3,4 +3,7 @@ from . import views
 
 app_name = "snowball_authentication"
 
-urlpatterns = []
+urlpatterns = [
+    path("profile/", views.profile, name="profile"),
+    path("passkeys/", views.passkeys, name="passkeys"),
+]

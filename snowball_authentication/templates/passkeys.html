@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div id="profile-window" class="snowball-window" style="width: 80%; top: 10%; left: 10%;">
+    <div class="title-bar" id="title-bar-profile-window">
+        <div class="button close-button" id="close-btn-profile-window"></div>
+        <div class="button minimize-button" id="min-btn-profile-window"></div>
+        <div class="button maximize-button" id="max-btn-profile-window"></div>
+        Passkeys
+    </div>
+    <div class="snowball-window-content">
+        <h1>Incoming</h1>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <meta name="appleid-signin-client-id" content="xyz.mobiletools.MobileToolsAuth.serviceid">
 <meta name="appleid-signin-redirect-uri" content="https://www.mobiletools.xyz/complete/apple-id/">
-
-<div id="{{ post.slug }}" class="snowball-window" style="width: 80%
+<meta name="appleid-signin-use-popup" content="true">
+<meta name="appleid-signin-scope" content="email">
+<link rel="stylesheet" href="{% static 'snowball_authentication/css/login.css' %}">
+<div id="{{ post.slug }}" class="snowball-window" style="width: 50%
 ; top: 10%; left: 10%">
     <div class="title-bar">
         <div class="button close-button"></div>
@@ -13,27 +17,41 @@
         <div class="button maximize-button"></div>
     </div>
     <div class="snowball-window-content">
-        {% if user.is_authenticated %}
-
-        <h1>{{ user.username }}</h1>
-
-        {% else %}
-
-        <a href="{% url 'social:begin' 'facebook' %}">Facebook</a>
-        <a href="{% url 'social:begin' 'google-oauth2' %}">Google</a>
-
-        <a href="{% url 'social:begin' 'apple-id' %}">Apple</a>
-        <style>
-            .signin-button {
-                width: 210px;
-                height: 40px;
-            }
-        </style>
-
-        <script type="text/javascript"
-            src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>
-
-        {% endif %}
+        <div class="login-container">
+            <a href="{% url 'social:begin' 'facebook' %}">
+                <div class="facebook-container">
+                    <div class="facebook-logo-container">
+                        <img src="{% static 'snowball_authentication/svg/facebook.svg' %}">
+                    </div>
+                    <div
+                        style="color: white; font-size: 20px; font-family: Helvetica; font-weight: 700; word-wrap: break-word">
+                        Continue with Facebook</div>
+                </div>
+            </a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
+                <div class="google-container">
+                    <div class="google-logo-container">
+                        <div style="width: 23px; height: 23px; left: 0.50px; top: 0.50px; position: absolute">
+                            <img src="{% static 'snowball_authentication/svg/google.svg' %}"
+                                style="width: 23px; height: 23px">
+                        </div>
+                    </div>
+                    <div
+                        style="color: rgba(0, 0, 0, 0.54); font-size: 20px; font-family: Roboto; font-weight: 500; word-wrap: break-word">
+                        Continue with Google</div>
+                </div>
+            </a>
+            <a href="{% url 'social:begin' 'apple-id' %}">
+                <div class="apple-id-container">
+                    <div class="apple-logo-container">
+                        <img src="{% static 'snowball_authentication/svg/apple.svg' %}">
+                    </div>
+                    <div class="appleid-text">
+                        Continue with Apple
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 

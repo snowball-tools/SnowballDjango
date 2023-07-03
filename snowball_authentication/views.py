@@ -9,4 +9,7 @@ def profile(request):
 
 @login_required(login_url="{% url 'login' %}")
 def passkeys(request):
+    if request.method == "POST":
+        # to do
+        pass
     return render(request, "passkeys.html")

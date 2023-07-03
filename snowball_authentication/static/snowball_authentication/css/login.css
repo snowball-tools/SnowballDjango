@@ -4,7 +4,7 @@
 }
 
 .login-container {
-  padding: 0px 10px 0px 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-self: stretch;
   flex-shrink: 0;
-  height: 193px;
+  height: 20%;
   position: relative;
 }
 
@@ -123,4 +123,5 @@
 .snowball-window {
   top: 10%;
   left: 10%;
+  width: 80%;
 }

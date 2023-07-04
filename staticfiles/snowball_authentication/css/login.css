@@ -125,3 +125,49 @@
   left: 10%;
   width: 80%;
 }
+
+.passkey-button,
+.passkey-button * {
+  box-sizing: border-box;
+}
+
+.passkey-button {
+  background: #979696;
+  border-radius: 10px;
+  padding: 15px 20px 15px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25),
+    0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.person-badge-key-fill-1 {
+  flex-shrink: 0;
+  width: 24px;
+  height: 22.52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.group {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+
+.continue-with-passkeys {
+  color: #ffffff;
+  text-align: left;
+  font: 500 20px "SF Pro Display", sans-serif;
+  position: relative;
+  flex: 1;
+}

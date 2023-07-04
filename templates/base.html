@@ -52,7 +52,7 @@
                 {% endif %}
                 <a class="menu-item" href="{% url 'snowball_main:contact' %}">Contact</a>
                 {% if user.is_authenticated %}
-                <a class="menu-item" href="{% url 'snowball_authentication:passkeys' %}">Passkeys</a>
+                <a class="menu-item" href="{% url 'passkeys:home' %}">Passkeys</a>
                 <a class="menu-item" href="{% url 'logout' %}">Logout</a>
                 {% endif %}
             </div>
@@ -63,12 +63,13 @@
         <img class="centered-image" src="{% static 'snowball_main/svg/snowball.svg' %}" alt="Snowball Logo">
     </div>
 
-    {% block content %}{% endblock %}
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="{% static 'snowball_main/js/draggable.js' %}"></script>
     <script src="{% static 'snowball_main/js/bootstrap.bundle.min.js' %}"></script>
+
+    {% block content %}{% endblock %}
+    {% block head %}{% endblock %}
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import passkeys
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +23,7 @@ INSTALLED_APPS = [
     "social_django",
     "drf_social_oauth2",
     "compressor",
+    "passkeys",
     "snowball_main",
     "snowball_blog",
     "snowball_authentication",
@@ -131,6 +133,7 @@ AUTHENTICATION_BACKENDS = (
     "social_core.backends.apple.AppleIdAuth",
     "drf_social_oauth2.backends.DjangoOAuth2",
     "django.contrib.auth.backends.ModelBackend",
+    "passkeys.backend.PasskeyModelBackend",
 )
 
 LOGOUT_REDIRECT_URL = "/"
@@ -202,3 +205,7 @@ SOCIAL_AUTH_APPLE_ID_KEY = os.environ["APPLE_KEY_ID"]
 SOCIAL_AUTH_APPLE_ID_SECRET = os.environ["APPLE_CERTIFICATE_KEY"]
 SOCIAL_AUTH_APPLE_ID_SCOPE = ["email"]
 SOCIAL_AUTH_APPLE_ID_EMAIL_AS_USERNAME = True
+
+FIDO_SERVER_ID = "www.mobiletools.xyz" if DEBUG else "www.snowballtools.xyz"
+FIDO_SERVER_NAME = "Snowball Tools"
+KEY_ATTACHMENT = passkeys.Attachment.PLATFORM

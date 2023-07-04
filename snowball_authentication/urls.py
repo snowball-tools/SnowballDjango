@@ -5,5 +5,5 @@ app_name = "snowball_authentication"
 
 urlpatterns = [
     path("profile/", views.profile, name="profile"),
-    path("passkeys/", views.passkeys, name="passkeys"),
+    path("login/", views.loginView, name="login"),
 ]

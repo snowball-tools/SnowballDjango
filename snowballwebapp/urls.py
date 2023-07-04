@@ -30,6 +30,7 @@ urlpatterns = [
         "",
         include("snowball_authentication.urls", namespace="snowball_authentication"),
     ),
+    path("passkeys/", include("passkeys.urls")),
 ]
 
 handler404 = views.page_not_found

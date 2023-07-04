@@ -4,7 +4,6 @@
 }
 
 .login-container {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -73,7 +72,7 @@
   position: relative;
 }
 
-.logo-googleg-48-dp {
+.google-logo-container {
   position: absolute;
   left: 0.5px;
   top: 0.5px;
@@ -170,4 +169,24 @@
   font: 500 20px "SF Pro Display", sans-serif;
   position: relative;
   flex: 1;
+}
+
+.passkey {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  padding: 12px 20px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

@@ -4,6 +4,17 @@
 
 {% block content %}
 
+<style>
+    .passkey-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+</style>
 <meta name="appleid-signin-client-id" content="xyz.mobiletools.MobileToolsAuth.serviceid">
 <meta name="appleid-signin-redirect-uri" content="https://www.mobiletools.xyz/complete/apple-id/">
 <meta name="appleid-signin-use-popup" content="true">
@@ -25,7 +36,7 @@
             </a>
             <a href="{% url 'social:begin' 'google-oauth2' %}" class="google-button">
                 <div class="google-logo">
-                    <img src="{% static 'snowball_authentication/svg/google.svg' %}" class="logo-googleg-48-dp"
+                    <img src="{% static 'snowball_authentication/svg/google.svg' %}" class="google-logo-container"
                         width="24" height="23">
                 </div>
                 <div class="continue-with-google">Continue with Google</div>
@@ -35,14 +46,14 @@
                     height="25">
                 <div class="continue-with-facebook">Continue with Facebook</div>
             </a>
-            <div class="passkey-button" onclick="">
+            <div class="passkey-button">
+                <input name="passkeys" autocomplete="webauthn" class="passkey" type="text" id="passkeys">
                 <div class="passkey-icon">
                     <img src="{% static 'snowball_authentication/svg/passkey.svg' %}" class="group" width="25"
                         height="23">
                 </div>
                 <div class="continue-with-passkeys">Continue with Passkeys</div>
             </div>
-
         </div>
     </div>
 </div>
@@ -51,4 +62,5 @@
 <script type="application/javascript">
     window.onload = checkConditionalUI('loginForm');
 </script>
+
 {% endblock %}

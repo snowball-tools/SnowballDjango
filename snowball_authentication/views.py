@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
+import requests
 
 
 @login_required(login_url="{% url 'login' %}")

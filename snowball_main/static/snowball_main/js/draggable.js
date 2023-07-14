@@ -5,10 +5,12 @@ for (var i = 0; i < elements.length; i++) {
 }
 
 var docIcon = document.getElementById("docIcon");
-docIcon.addEventListener("click", function () {
-  window.location.href = "https://docs.snowballtools.xyz";
-});
-dragElement(docIcon, docIcon);
+if (docIcon != null) {
+  docIcon.addEventListener("click", function () {
+    window.location.href = "https://docs.snowballtools.xyz";
+  });
+  dragElement(docIcon, docIcon);
+}
 
 function dragElement(titleBar, elmnt) {
   var pos1 = 0,

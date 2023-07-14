@@ -15,7 +15,34 @@
         <h1>{{ user.username }}</h1>
         <h2>{{ user.email }}</h2>
         <h2>{{ user.date_joined }}</h2>
+        <button onclick="registerWithWebAuthn()">Register with WebAuthn</button>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@lit-protocol/lit-auth-client-vanilla/lit-auth-client.js"></script>
+
+<script>
+    var litAuthClient = new LitJsSdk_litAuthClient.LitAuthClient({
+        litRelayConfig: {
+            relayApiKey: '{{ RELAY_KEY }}',
+        },
+    });
+    litAuthClient.initProvider("webauthn");
+
+    window.litAuthClient = litAuthClient;
+
+    async function registerWithWebAuthn() {
+        const provider = window.litAuthClient.getProvider("webauthn");
+        const options = await provider.register();
+
+        const txHash = await provider.verifyAndMintPKPThroughRelayer(options);
+        const response = await provider.relay.pollRequestUntilTerminalState(
+            txHash
+        );
+
+        console.log(response);
+        return response.pkpPublicKey;
+    }
+</script>
 
 {% endblock %}

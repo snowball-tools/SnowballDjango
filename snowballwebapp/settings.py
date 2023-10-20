@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     "snowball_main",
     "snowball_blog",
     "snowball_authentication",
+    "channels",
+    "django_nextjs.apps.DjangoNextJSConfig"
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,7 @@ STATICFILES_FINDERS = [
     "compressor.finders.CompressorFinder",
 ]
 
-WSGI_APPLICATION = "snowballwebapp.wsgi.application"
+ASGI_APPLICATION = "snowballwebapp.asgi.application"
 
 
 # Database

@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ### Development
 
 ```sh
-python manage.py migrate && python manage.py collectstatic --noinput && gunicorn snowballwebapp.wsgi
+python manage.py migrate && python manage.py collectstatic --noinput && gunicorn snowballwebapp.asgi:application -k uvicorn.workers.UvicornWorker
 ```
 
 

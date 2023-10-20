@@ -14,9 +14,16 @@ Django web app with postgresql database
 
 ### Dependencies
 
-```bash
+```sh
 pip install -r requirements.txt
 ```
+
+### Development
+
+```sh
+python manage.py migrate && python manage.py collectstatic --noinput && gunicorn snowballwebapp.wsgi
+```
+
 
 ## Built With
 

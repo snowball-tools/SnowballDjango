@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from os import name
 from django.contrib import admin
 from django.urls import include, path, re_path
 
@@ -30,6 +31,7 @@ urlpatterns = [
         "",
         include("snowball_authentication.urls", namespace="snowball_authentication"),
     ),
+    path("next/", include("snowball_dashboard.urls", namespace="snowball_dashboard")),
 ]
 
 handler404 = views.page_not_found
